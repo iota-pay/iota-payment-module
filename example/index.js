@@ -6,8 +6,7 @@ app.get("/", function (req, res) {
 });
 
 var options = {
-    mount: '/payment',
-    seed: "BZQISTHGKAEMDYGJXPPDIXHJJELETQYPOAWLMAKIUVSGQKCNKRUYFQPDKZCNMAXNAWEYWVXVWFFWPLMBD", // default: generateSeed()
+    mount: '/payments',
     // ...
 }
 
