@@ -1,17 +1,16 @@
 {
   "name": "iota-payment",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "iota payment module for nodejs applications.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "huhn511",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
-    "lowdb": "^1.0.0",
-    "n": "^6.0.1"
+    "lowdb": "^1.0.0"
   }
 }
