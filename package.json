@@ -4,7 +4,10 @@
   "description": "iota payment module for nodejs applications.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint lib --color",
+    "p": "prettier --write 'lib/**/*.js'",
+    "p:w": "onchange 'lib/**/*.js' -- prettier --write {{changed}}"
   },
   "author": "huhn511",
   "license": "ISC",
@@ -12,5 +15,17 @@
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "lowdb": "^1.0.0"
+  },
+  "devDependencies": {
+    "onchange": "^6.0.0",
+    "prettier": "^1.18.2",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   }
 }
