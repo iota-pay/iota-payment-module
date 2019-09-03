@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint lib --color",
-    "p": "prettier --write 'lib/**/*.js'",
-    "p:w": "onchange 'lib/**/*.js' -- prettier --write {{changed}}"
+    "p": "prettier --write \"lib/**/*.js\"",
+    "p:w": "onchange \"lib/**/*.js\" -- prettier --write {{changed}}"
   },
   "author": "huhn511",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
