@@ -18,8 +18,6 @@
     "lowdb": "^1.0.0"
   },
   "devDependencies": {
-    "onchange": "^6.0.0",
-    "prettier": "^1.18.2",
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.1.0",
     "eslint-config-standard": "^14.1.0",
@@ -27,6 +25,9 @@
     "eslint-plugin-node": "^9.2.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^1.19.2",
+    "onchange": "^6.0.0",
+    "prettier": "^1.18.2"
   }
 }
