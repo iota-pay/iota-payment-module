@@ -23,14 +23,23 @@ $ npm install iota-payment
 var paymentModule = require('iota-payment')
 var app = require('express')()
 
-let server = paymentModule.createServer({}, app)
+let server = paymentModule.createServer(app)
 
+// Start server with iota-payment module on '/payments'
 server.listen(3000, function () {
-    // Started Express app with payment paymentModule on '/payments'
     console.log(`Server started on http://localhost:3000 `)
 })
 
 ```
+
+### Examples
+
+- [01_simple_server](./examples/01_simple_server.js)
+- [02_custom_server](./examples/02_custom_server.js)
+- [03_events](./examples/03_events.js)
+- [04_payments](./examples/04_payments.js)
+- [05_payout](./examples/05_payout.js)
+
 
 ## Contribute
 This module is only possible because of a large community of contributors. A heartfelt thank you to everyone for all of your efforts!
