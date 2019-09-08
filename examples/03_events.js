@@ -10,7 +10,7 @@ var options = {
     // ...
 }
 
-let server = paymentModule.createServer(options, app)
+let server = paymentModule.createServer(app, options)
 
 //app.use('/payments', )
 server.listen(3000, function () {
