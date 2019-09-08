@@ -1,19 +1,30 @@
 var paymentModule = require('..')
 
-// get all payments
-paymentModule.payments.getPayments().then(payments => {
+async function run() {
+  // get all payments
+  console.log("All payments:");
+  await paymentModule.payments.getPayments().then(payments => {
     console.log(payments)
-})
+  })
 
-// get all open payments
-paymentModule.payments.getOpenPayments().then(payments => {
+  // get all open payments
+  console.log("Open payments:");
+  await paymentModule.payments.getOpenPayments().then(payments => {
     console.log(payments)
-})
-// create a payment
-paymentModule.payments.createPayment(0, {"test": "123"}).then(payment => {
+  })
+
+  // create a payment
+  console.log("Create payment:");
+  let id;
+  await paymentModule.payments.createPayment(0, { "test": "123" }).then(payment => {
     console.log(payment)
-})
-// get a specific payment
-paymentModule.payments.getPaymentByID("1567714377826").then(payment => {
+    id = payment.id
+  })
+
+  // get a specific payment
+  console.log("Get payment:");
+  await paymentModule.payments.getPaymentByID(id).then(payment => {
     console.log(payment)
-})
+  })
+}
+run()
