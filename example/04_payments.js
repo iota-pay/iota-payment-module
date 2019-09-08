@@ -11,7 +11,7 @@ paymentModule.payments.getOpenPayments().then(payments => {
 })
 // create a payment
 let id;
-paymentModule.payments.createPayment({"test": "123"}).then(payment => {
+paymentModule.payments.createPayment(0, {"test": "123"}).then(payment => {
     console.log(payment)
 })
 // get a specific payment
