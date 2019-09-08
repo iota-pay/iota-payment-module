@@ -13,8 +13,7 @@ var options = {
 
 let server = paymentModule.createServer(app, options)
 
-//app.use('/payments', )
+// Start server with iota-payment module on '/payments'
 server.listen(3000, function () {
-    // Started Express app with payment paymentModule on '/payments'
     console.log(`Server started on http://localhost:3000 `)
 })
