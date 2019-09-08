@@ -5,12 +5,7 @@ app.get("/", function (req, res) {
     res.send('hello world from example!');
 });
 
-var options = {
-    mount: '/payments',
-    // ...
-}
-
-let server = paymentModule.createServer(options, app)
+let server = paymentModule.createServer({}, app)
 
 //app.use('/payments', )
 server.listen(3000, function () {
