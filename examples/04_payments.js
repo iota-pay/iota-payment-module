@@ -10,7 +10,6 @@ paymentModule.payments.getOpenPayments().then(payments => {
     console.log(payments)
 })
 // create a payment
-let id;
 paymentModule.payments.createPayment(0, {"test": "123"}).then(payment => {
     console.log(payment)
 })
