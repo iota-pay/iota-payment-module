@@ -1,8 +1,8 @@
 var paymentModule = require('..')
 
-var address = "ZVIS9TDLJ9LRFAVPDYXTQEFUTVTPUXNUQCIZAXWHZ9VEXVKFIQSSJHNAJWKCLOYKPBYCSCCENPIHYBUACPOAVDQFPX"
+var address = "FDAMKPQTGRVIRWYIVDTAJSPBLKWA9OHLYPKBGMUFFMLAPQNAGBMUPOXC9KMLHAKRDMBTRBEE9ALBHQTVWJNAHYXBTC"
 
-paymentModule.payout(address, 5).then(result => {
+paymentModule.payout(address, 1).then(result => {
     console.log("result", result)
 }, error => {
     console.log("error", error)
