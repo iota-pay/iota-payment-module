@@ -1,11 +1,11 @@
 var paymentModule = require('..')
 
-var address = "ht"
+var address = "BUCJHLHHOYKQLLOMNTTEZEKAAEMRCSXNKELOXSDTZXOL9AZFYDPKFGARU9OB9FGXFPKHCSIAMBMQHMOT9XTOHTZLXB"
 
-paymentModule.payout.send({address: address, value: 1}).then(result => {
-    console.log("result", result)
-}, error => {
-    console.log("error", error)
+paymentModule.payout.send({ address: address, value: 1 })
+.then(result => {
+  console.log("result", result)
 })
-// .catch(e => {
-//   console.log(e)})
+.catch(err => {
+  console.log(err)
+})
