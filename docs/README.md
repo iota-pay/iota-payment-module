@@ -4,8 +4,9 @@
 
 -   [createServer][1]
     -   [Parameters][2]
--   [on][3]
-    -   [Parameters][4]
+    -   [Examples][3]
+-   [on][4]
+    -   [Parameters][5]
 
 ## createServer
 
@@ -13,10 +14,25 @@ Creates and returns a express server.
 
 ### Parameters
 
--   `app` **[object][5]** an express application.
--   `options` **[object][5]** an options object. (optional, default `{}`)
+-   `app` **[object][6]** an express application.
+-   `options` **[object][6]** an options object. (optional, default `{}`)
 
-Returns **[object][5]** an http server
+### Examples
+
+```javascript
+// creates a simple server
+var paymentModule = require('iota-payment')
+var app = require('express')()
+
+let server = paymentModule.createServer(app)
+
+// Start server with iota-payment module on '/payments'
+server.listen(3000, function () {
+   console.log(`Server started on http://localhost:3000 `)
+})
+```
+
+Returns **[object][6]** an http server
 
 ## on
 
@@ -24,17 +40,19 @@ This method attaches an event listener.
 
 ### Parameters
 
--   `event` **[object][5]** event name
--   `fnc` **[function][6]** the function which will be called
+-   `event` **[object][6]** event name
+-   `fnc` **[function][7]** the function which will be called
 
 [1]: #createserver
 
 [2]: #parameters
 
-[3]: #on
+[3]: #examples
 
-[4]: #parameters-1
+[4]: #on
 
-[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[5]: #parameters-1
 
-[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
