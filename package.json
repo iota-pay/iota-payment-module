@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint lib --color",
     "p": "prettier --write \"lib/**/*.js\"",
-    "p:w": "onchange \"lib/**/*.js\" -- prettier --write {{changed}}"
+    "p:w": "onchange \"lib/**/*.js\" -- prettier --write {{changed}}",
+    "docs:build": "documentation build lib/** -f md -o docs/README.md"
   },
   "author": "huhn511",
   "license": "MIT",
@@ -21,6 +22,7 @@
     "lowdb": "^1.0.0"
   },
   "devDependencies": {
+    "documentation": "^12.1.2",
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.1.0",
     "eslint-config-standard": "^14.1.0",
