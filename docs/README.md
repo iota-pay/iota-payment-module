@@ -17,6 +17,8 @@ Creates and returns a express server.
 
 -   `app` **[object][7]** an express application.
 -   `options` **[object][7]** an options object. (optional, default `{}`)
+    -   `options.mount` **[String][8]** The payment route name.
+    -   `options.value` **[Number][9]** The default IOTA value.
 
 ### Examples
 
@@ -25,7 +27,7 @@ Creates and returns a express server.
 var paymentModule = require('iota-payment')
 var app = require('express')()
 
-let server = paymentModule.createServer(app)
+let server = paymentModule.createServer(app, {mount: '/payments'})
 
 // Start server with iota-payment module on '/payments'
 server.listen(3000, function () {
@@ -42,7 +44,7 @@ This method attaches an event listener.
 ### Parameters
 
 -   `event` **[object][7]** event name
--   `fnc` **[function][8]** the function which will be called
+-   `fnc` **[function][10]** the function which will be called
 
 ### Examples
 
@@ -72,4 +74,8 @@ paymentModule.on('paymentSuccess', onPaymentSuccess);
 
 [7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
