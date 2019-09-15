@@ -16,7 +16,7 @@ async function run() {
   // create a payment
   console.log("Create payment:");
   let id;
-  await paymentModule.payments.createPayment(0, { "test": "123" }).then(payment => {
+  await paymentModule.payments.createPayment(1, { "test": "123" }).then(payment => {
     console.log(payment)
     id = payment.id
   })
