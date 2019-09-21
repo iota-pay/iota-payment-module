@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Socket.IO chat</title>
+    <style>
+        li {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(message, index) in messages" :key="index">{{message.status}}</li>
+    </ul>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script>
+
+    const socket = io('http://localhost:3000', {
+        path: '/payments/socket'
+    });
+
+    var app = new Vue({
+            el: '#app',
+            data: {
+                messages: []
+            },
+            mounted() {
+                let self = this;
+                socket.on('payments', function (msg) {
+                    // incoming ws message to array
+                    self.messages.push(msg)
+                    console.log("msg", msg)
+                });
+            }
+        })
+</script>
+</html>
