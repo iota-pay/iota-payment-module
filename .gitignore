@@ -1,3 +1,4 @@
 node_modules
 .env
 db_iota-payment.json
+db_iota-payment-*.json
