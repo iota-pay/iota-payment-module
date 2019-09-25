@@ -11,6 +11,18 @@
 </head>
 
 <body>
+    <div id="form1">
+        <p>Payment</p>
+        <form id ="payment" action="/" method="post">
+          <label>Value: </label>
+          <input id="data"type="text" name = "data"><br>
+          <label>Data: </label>
+          <input id="data"type="text" name = "data" size="50"><br>
+          <input class = "update_form" type="submit" value="Request payment">
+        </form>
+        <pre id="paymentlist">
+    <b>Payments:</b>
+    </pre>
 <div id="app">
     <ul>
         <li v-for="(message, index) in messages" :key="index">{{message.status}}</li>
@@ -19,8 +31,10 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script>
-
+    var socketClientId
     const socket = io('http://localhost:3000', {
         path: '/payments/socket'
     });
@@ -37,7 +51,32 @@
                     self.messages.push(msg)
                     console.log("msg", msg)
                 });
+                socket.on('connect', () => {
+                    //set clientid in case of a reconnection
+                    if(typeof socketClientId != 'undefined'){
+                      socket.emit('storeClientInfo', { customId: socketClientId });
+                    }
+                });
             }
         })
+
+
+    $(".update_form").click(function() {
+    let type = $(this).parent().attr('id')
+    $.ajax({
+           type: "POST",
+           url: type,
+           data: $(this).parent().serialize(),
+           success: function(data) {
+               console.log(data); //show response
+               //set client id
+               socket.emit('storeClientInfo', { customId: data.id });
+               socketClientId = data.id
+               let htmldata = document.getElementById(`${type}list`)
+               htmldata.innerHTML += JSON.stringify(data, null, 1)+'<br>'
+           }
+    });
+    return false; //avoid to execute the actual form submission.
+});
 </script>
 </html>
