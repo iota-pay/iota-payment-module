@@ -8,7 +8,7 @@
 - [x] [Check transaction status (confirmed or not) ]()
 - [x] [JS Event handler]()
 - [x] [Payout functionality]()
-- [ ] [Auto payment cleanup](https://github.com/machineeconomy/iota-payment/issues/18)
+- [x] [Auto payment cleanup](https://github.com/machineeconomy/iota-payment/issues/18)
 - [ ] [MQTT Events](https://github.com/machineeconomy/iota-payment/issues/7)
 
 
@@ -39,7 +39,7 @@ var app = require('express')()
 
 let server = paymentModule.createServer(app)
 
-// Start server with iota-payment module on '/payments'
+// Start server with iota-payment module on '/'
 server.listen(3000, function () {
     console.log(`Server started on http://localhost:3000 `)
 })
