@@ -52,6 +52,7 @@ server.listen(3000, function () {
 - [03_events](./examples/03_events.js)
 - [04_payments](./examples/04_payments.js)
 - [05_payout](./examples/05_payout.js)
+- [06_websockets](./examples/06_websockets.js)
 
 ## Contribute
 
