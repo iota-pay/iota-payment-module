@@ -23,7 +23,7 @@ app.post('/payment', async (req, res) => {
 
 var options = {
     mount: '/payments',
-    value: 0,
+    value: 1,
     websockets: true
     // ...
 }
