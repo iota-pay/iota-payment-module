@@ -54,7 +54,7 @@
                 socket.on('connect', () => {
                     //set clientid in case of a reconnection
                     if(typeof socketClientId != 'undefined'){
-                      socket.emit('storeClientInfo', { customId: socketClientId });
+                      socket.emit('storeClientInfo', { paymentId: socketClientId });
                     }
                 });
             }
@@ -70,7 +70,7 @@
            success: function(data) {
                console.log(data); //show response
                //set client id
-               socket.emit('storeClientInfo', { customId: data.id });
+               socket.emit('storeClientInfo', { paymentId: data.id });
                socketClientId = data.id
                let htmldata = document.getElementById(`${type}list`)
                htmldata.innerHTML += JSON.stringify(data, null, 1)+'<br>'
