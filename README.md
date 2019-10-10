@@ -53,7 +53,7 @@ server.listen(3000, function () {
 - [01_simple_server](./examples/01_simple_server.js)
 - [02_custom_server](./examples/02_custom_server.js)
 - [03_events](./examples/03_events.js)
-- [04_payments](./examples/04_payments.js)
+- [04_payment](./examples/04_payment.js)
 - [05_payout](./examples/05_payout.js)
 - [06_websockets](./examples/06_websockets.js)
 

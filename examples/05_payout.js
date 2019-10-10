@@ -1,8 +1,17 @@
 var paymentModule = require('..')
 
-var address = "USKSGFKPWVXD9EUOJXWNLVWG9FDTIPGBUYB9BQNMMUWIEOMFNDCCUKCJMEPRICBHZNRAIZFGNPK9GCGBYQAEWNJRMC"
-
-paymentModule.payout.send({ address: address, value: 1 })
+let payoutObject = {
+  //required
+  address: 'HW99PKRDWBUCCWLEQDONQXW9AXQHZAABYEKWSEFYAUIQWWCLVHAUJEQAZJACAGPZBZSQJIOUXRYYEXWZCXXOAJMZVY', 
+  value: 1, 
+  //optional
+  message: 'Example message',
+  tag: 'TRYTETAG',
+  //indexes for input addresses, only in special cases required
+  // starIndex: 0,
+  // endIndex: 1
+}
+paymentModule.payout.send(payoutObject)
 .then(result => {
   console.log("result", result)
 })
