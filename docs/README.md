@@ -2,12 +2,58 @@
 
 ### Table of Contents
 
--   [createServer][1]
-    -   [Parameters][2]
-    -   [Examples][3]
--   [on][4]
-    -   [Parameters][5]
-    -   [Examples][6]
+-   [getBalance][1]
+    -   [Examples][2]
+-   [createServer][3]
+    -   [Parameters][4]
+    -   [Examples][5]
+-   [on][6]
+    -   [Parameters][7]
+    -   [Examples][8]
+-   [createPayment][9]
+    -   [Parameters][10]
+    -   [Examples][11]
+-   [getPayments][12]
+    -   [Examples][13]
+-   [getOpenPayments][14]
+    -   [Examples][15]
+-   [getPaymentByID][16]
+    -   [Parameters][17]
+    -   [Examples][18]
+-   [send][19]
+    -   [Parameters][20]
+    -   [Examples][21]
+-   [getPayouts][22]
+    -   [Examples][23]
+-   [getOpenpayouts][24]
+    -   [Examples][25]
+-   [getPayoutByID][26]
+    -   [Parameters][27]
+    -   [Examples][28]
+-   [getPayoutByTxhash][29]
+    -   [Parameters][30]
+    -   [Examples][31]
+
+## getBalance
+
+Returns the balance
+
+### Examples
+
+```javascript
+// get payout by txhash
+paymentModule.getBalance()
+ .then(balance => {
+     console.log(balance)
+   })
+ .catch(err => {
+   console.log(err)
+ })
+//example balance:
+15
+```
+
+Returns **[number][32]** balance
 
 ## createServer
 
@@ -15,10 +61,10 @@ Creates and returns a express server.
 
 ### Parameters
 
--   `app` **[object][7]** an express application.
--   `options` **[object][7]** an options object. (optional, default `{}`)
-    -   `options.mount` **[String][8]** The payment route name.
-    -   `options.value` **[Number][9]** The default IOTA value.
+-   `app` **[object][33]** an express application.
+-   `options` **[object][33]** an options object. (optional, default `{}`)
+    -   `options.mount` **[String][34]** The payment route name.
+    -   `options.value` **[Number][32]** The default IOTA value.
 
 ### Examples
 
@@ -35,7 +81,7 @@ server.listen(3000, function () {
 })
 ```
 
-Returns **[object][7]** an http server
+Returns **[object][33]** an http server
 
 ## on
 
@@ -43,8 +89,8 @@ This method attaches an event listener.
 
 ### Parameters
 
--   `event` **[object][7]** event name
--   `fnc` **[function][10]** the function which will be called
+-   `event` **[object][33]** event name
+-   `fnc` **[function][35]** the function which will be called
 
 ### Examples
 
@@ -60,22 +106,393 @@ var onPaymentSuccess = function (payment) {
 paymentModule.on('paymentSuccess', onPaymentSuccess);
 ```
 
-[1]: #createserver
+## createPayment
 
-[2]: #parameters
+Creates and returns a payment.
 
-[3]: #examples
+### Parameters
 
-[4]: #on
+-   `value` **[number][32]?** amount of iotas - default: 0 (optional, default `0`)
+-   `data` **any?** data for the payment
 
-[5]: #parameters-1
+### Examples
 
-[6]: #examples-1
+```javascript
+// create a payment
+paymentModule.payment.createPayment(1, { "test": "123" })
+ .then(payment => {
+   console.log(payment)
+ })
+ .catch(err => {
+   console.log(err)
+ })
+//example payment:
+{ address:
+ 'QXHAEPJSEIUAMMOUWDGYJD9MPPIGBYOPAQSPOZK9VZSGDVVV9SUJEYVXYRFL9KRRBWSDNIFGBDLH9DBADGABSCFTFD',
+index: 11,
+value: 1,
+data: { test: '123' },
+payed: false,
+id: '1570554460662' }
+```
 
-[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+Returns **[object][33]** payment
 
-[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+## getPayments
 
-[9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+Returns all payments
 
-[10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+### Examples
+
+```javascript
+// get payments
+paymentModule.payment.getPayments()
+ .then(payments => {
+   console.log(payments)
+ })
+ .catch(err => {
+   console.log(err)
+ })
+//example payments:
+[ { address:
+  'CLHNILYEPUQYJWRSGPQGA9BVVKHFHQMDM9ENNSGAHJXJIOLMBARZNHKWZZVGXSSQITOHPD9JXQGVQJJJBKMVRFWSNW',
+ index: 10,
+ value: '0',
+ data: 'test',
+ payed: true,
+ id: '1570466750915',
+ lastTime: 1570466754629 },
+{ address:
+  'CLTDMWYNTKMPSISD9CBLH9MGATUZQXDALPZQBMHPJQLTKDTWDKFRJQYDKUCPYQFTFPNJBEIHHJRBKQMXXHNSUYEXJC',
+ index: 12,
+ value: 1,
+ payed: false,
+ id: '1570564499942' } ]
+```
+
+Returns **[Array][36]&lt;[Object][33]>** payments
+
+## getOpenPayments
+
+Returns all open (not payed and not too old) payments
+
+### Examples
+
+```javascript
+// get open payments
+paymentModule.payment.getPayments()
+ .then(payments => {
+   console.log(payments)
+ })
+ .catch(err => {
+   console.log(err)
+ })
+//example payments:
+[ { address:
+  'QXHAEPJSEIUAMMOUWDGYJD9MPPIGBYOPAQSPOZK9VZSGDVVV9SUJEYVXYRFL9KRRBWSDNIFGBDLH9DBADGABSCFTFD',
+ index: 11,
+ value: 1,
+ data: { test: '123' },
+ payed: false,
+ id: '1570554460662' },
+{ address:
+  'CLTDMWYNTKMPSISD9CBLH9MGATUZQXDALPZQBMHPJQLTKDTWDKFRJQYDKUCPYQFTFPNJBEIHHJRBKQMXXHNSUYEXJC',
+ index: 12,
+ value: 1,
+ payed: false,
+ id: '1570564499942' } ]
+```
+
+Returns **[Array][36]&lt;[Object][33]>** open payments
+
+## getPaymentByID
+
+Returns payment by id
+
+### Parameters
+
+-   `id`  
+
+### Examples
+
+```javascript
+// get payment by id
+paymentModule.payment.getPaymentByID('1570564499942')
+ .then(payment => {
+   console.log(payment)
+ })
+ .catch(err => {
+   console.log(err)
+ })
+//example payment:
+{ address:
+  'CLTDMWYNTKMPSISD9CBLH9MGATUZQXDALPZQBMHPJQLTKDTWDKFRJQYDKUCPYQFTFPNJBEIHHJRBKQMXXHNSUYEXJC',
+ index: 12,
+ value: 1,
+ payed: false,
+ id: '1570564499942' }
+```
+
+Returns **[Object][33]** payment
+
+## send
+
+Creates and returns a payout.
+
+### Parameters
+
+-   `payoutData` **[object][33]** data for the payout
+    -   `payoutData.address` **address** 90 trytes iota address (with checksum)
+    -   `payoutData.amount` **[number][32]** amount of iotas
+    -   `payoutData.message` **[string][34]?** message which will be send with the transaction
+    -   `payoutData.tag` **[string][34]?** tryte tag
+    -   `payoutData.startIndex` **[number][32]?** custom start index to search for inputaddresses
+    -   `payoutData.endIndex` **[number][32]?** custom end index to search for inputaddresses
+
+### Examples
+
+```javascript
+// create a payout
+let payoutObject = {
+  //required
+  address: 'HW99PKRDWBUCCWLEQDONQXW9AXQHZAABYEKWSEFYAUIQWWCLVHAUJEQAZJACAGPZBZSQJIOUXRYYEXWZCXXOAJMZVY',
+  value: 1,
+  //optional
+  message: 'Example message',
+  tag: 'TRYTETAG',
+  //indexes for input addresses, only required in special cases
+  // startIndex: 0,
+  // endIndex: 1
+}
+paymentModule.payout.send(payoutObject)
+ .then(payout => {
+   console.log(payout)
+ })
+ .catch(err => {
+   console.log(err)
+ })
+//example payout:
+{ address:
+ 'HW99PKRDWBUCCWLEQDONQXW9AXQHZAABYEKWSEFYAUIQWWCLVHAUJEQAZJACAGPZBZSQJIOUXRYYEXWZCXXOAJMZVY',
+value: 1,
+message: 'Example message',
+tag: 'TRYTETAG',
+payed: false,
+id: '1570619992125' }
+```
+
+Returns **[object][33]** payout
+
+## getPayouts
+
+Returns all payouts
+
+### Examples
+
+```javascript
+// get payouts
+paymentModule.payout.getPayouts()
+ .then(payouts => {
+   console.log(payouts)
+ })
+ .catch(err => {
+   console.log(err)
+ })
+//example payouts:
+[
+ {
+   "address": "USKSGFKPWVXD9EUOJXWNLVWG9FDTIPGBUYB9BQNMMUWIEOMFNDCCUKCJMEPRICBHZNRAIZFGNPK9GCGBYQAEWNJRMC",
+   "value": 1,
+   "message": "Example message",
+   "payed": true,
+   "id": "1570616325073",
+   "txhash": "XKLLL9B9AUN9EASCAQAQHEYDLLEUDDUCOTJVNTJUSZVTNWUTDPHZUFUJAHFZJOSQYYEPJSWRDXDJ99999"
+ },
+ {
+   "address": "HW99PKRDWBUCCWLEQDONQXW9AXQHZAABYEKWSEFYAUIQWWCLVHAUJEQAZJACAGPZBZSQJIOUXRYYEXWZCXXOAJMZVY",
+   "value": 1,
+   "message": "Example message",
+   "payed": false,
+   "id": "1570616561382"
+ }
+]
+```
+
+Returns **[Array][36]&lt;[Object][33]>** payouts
+
+## getOpenpayouts
+
+Returns open payouts
+
+### Examples
+
+```javascript
+// get open payouts
+paymentModule.payout.getOpenpayouts()
+ .then(payouts => {
+   console.log(payouts)
+ })
+ .catch(err => {
+   console.log(err)
+ })
+//example payouts:
+[
+ {
+   "address": "HW99PKRDWBUCCWLEQDONQXW9AXQHZAABYEKWSEFYAUIQWWCLVHAUJEQAZJACAGPZBZSQJIOUXRYYEXWZCXXOAJMZVY",
+   "value": 1,
+   "message": "Example message",
+   "payed": false,
+   "id": "1570616561382"
+ }
+]
+```
+
+Returns **[Array][36]&lt;[Object][33]>** open payouts
+
+## getPayoutByID
+
+Returns payout by id
+
+### Parameters
+
+-   `id`  
+
+### Examples
+
+```javascript
+// get payout by id
+paymentModule.payout.getPayoutByID('1570611186704')
+ .then(payout => {
+   console.log(payout)
+ })
+ .catch(err => {
+   console.log(err)
+ })
+//example payout:
+{ address:
+ 'USKSGFKPWVXD9EUOJXWNLVWG9FDTIPGBUYB9BQNMMUWIEOMFNDCCUKCJMEPRICBHZNRAIZFGNPK9GCGBYQAEWNJRMC',
+value: 1,
+message: 'Example message',
+payed: false,
+id: '1570611186704' }
+```
+
+Returns **[Object][33]** payment
+
+## getPayoutByTxhash
+
+Returns payout by txhash
+
+### Parameters
+
+-   `txhash`  
+
+### Examples
+
+```javascript
+// get payout by txhash
+paymentModule.payout.getPayoutByTxhash('XKLLL9B9AUN9EASCAQAQHEYDLLEUDDUCOTJVNTJUSZVTNWUTDPHZUFUJAHFZJOSQYYEPJSWRDXDJ99999')
+ .then(payout => {
+  console.log(payout)
+ })
+ .catch(err => {
+    console.log(err)
+  })
+//example payout:
+{ address:
+ 'USKSGFKPWVXD9EUOJXWNLVWG9FDTIPGBUYB9BQNMMUWIEOMFNDCCUKCJMEPRICBHZNRAIZFGNPK9GCGBYQAEWNJRMC',
+value: 1,
+message: 'Example message',
+payed: true,
+id: '1570616325073',
+txhash:
+ 'XKLLL9B9AUN9EASCAQAQHEYDLLEUDDUCOTJVNTJUSZVTNWUTDPHZUFUJAHFZJOSQYYEPJSWRDXDJ99999' }
+```
+
+Returns **[Object][33]** payment
+
+## 
+
+WebSockets with socket.io
+
+backend:
+[https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websockets.js][37]
+
+frontend:
+[https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websocket.html][38]
+
+[1]: #getbalance
+
+[2]: #examples
+
+[3]: #createserver
+
+[4]: #parameters
+
+[5]: #examples-1
+
+[6]: #on
+
+[7]: #parameters-1
+
+[8]: #examples-2
+
+[9]: #createpayment
+
+[10]: #parameters-2
+
+[11]: #examples-3
+
+[12]: #getpayments
+
+[13]: #examples-4
+
+[14]: #getopenpayments
+
+[15]: #examples-5
+
+[16]: #getpaymentbyid
+
+[17]: #parameters-3
+
+[18]: #examples-6
+
+[19]: #send
+
+[20]: #parameters-4
+
+[21]: #examples-7
+
+[22]: #getpayouts
+
+[23]: #examples-8
+
+[24]: #getopenpayouts
+
+[25]: #examples-9
+
+[26]: #getpayoutbyid
+
+[27]: #parameters-5
+
+[28]: #examples-10
+
+[29]: #getpayoutbytxhash
+
+[30]: #parameters-6
+
+[31]: #examples-11
+
+[32]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[33]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[34]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[35]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[36]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[37]: https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websockets.js
+
+[38]: https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websocket.html

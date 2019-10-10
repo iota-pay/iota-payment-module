@@ -13,7 +13,7 @@ app.post('/payment', async (req, res) => {
     let value = inputdata[0]
     let data = inputdata[1]
     //create payment
-    let payment = await paymentModule.payments.createPayment(value, data)
+    let payment = await paymentModule.payment.createPayment(value, data)
     res.send(payment)
   } catch (err) {
     res.send(err)
