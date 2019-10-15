@@ -16,6 +16,8 @@
 
 This module can easily extend your nodejs or express app.
 
+[Docs](./docs)
+
 ### Install
 
 ```bash
@@ -42,7 +44,7 @@ var app = require('express')()
 
 let server = paymentModule.createServer(app)
 
-// Start server with iota-payment module on '/'
+// Start server with iota-payment module on '/payments'
 server.listen(3000, function () {
     console.log(`Server started on http://localhost:3000 `)
 })
