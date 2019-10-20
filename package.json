@@ -1,6 +1,6 @@
 {
   "name": "iota-payment",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "description": "iota payment module for nodejs applications.",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "@iota/checksum": "^1.0.0-beta.21",
+    "@iota/converter": "^1.0.0-beta.21",
     "@iota/core": "^1.0.0-beta.21",
     "@iota/validators": "^1.0.0-beta.21",
     "bluebird": "^3.5.5",
