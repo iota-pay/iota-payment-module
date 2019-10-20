@@ -14,6 +14,8 @@
 
 ## How to Use
 
+**Still in development and testing. Unexpected errors and loss of funds may occur. Feedback is welcome!**
+
 This module can easily extend your nodejs or express app.
 
 [Docs](./docs)
@@ -36,6 +38,12 @@ If you want to send payouts, without receiving iotas via payments first, send th
 SEED='REPLACEWITHEIGHTYONETRYTESEED'
 IOTANODE='https://nodes.thetangle.org:443'
 MAX_PAYMENT_TIME=1440
+```
+
+Optional add the following to have a payment success in seconds, don't use it with large amounts because a payment will be accepted before confirmation and an attacker could send the iotas to another address
+```bash
+fast_but_risky=true
+zmq_node='tcp://tanglebeat.com:5556'
 ```
 
 ```bash
