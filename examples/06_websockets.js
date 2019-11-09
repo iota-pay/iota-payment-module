@@ -21,6 +21,28 @@ app.post('/payment', async (req, res) => {
   }
 })
 
+app.post('/payout', async (req, res) => {
+  try {
+    console.log(req.body);
+    const data = req.body.data
+    console.log(data);
+    //fill data payout
+    let address = data[0],
+      value = data[1],
+      message = data[2],
+      tag = ''
+
+    let payout = await paymentModule.payout.send({ address, value, message, tag })
+    res.send(payout)
+    console.log("payout", payout)
+
+
+  } catch (err) {
+    res.send(err)
+    console.log(err)
+  }
+})
+
 var options = {
     mount: '/payments',
     value: 0,
