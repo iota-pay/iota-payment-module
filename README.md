@@ -46,6 +46,8 @@ fast_but_risky=true
 zmq_node='tcp://tanglebeat.com:5556'
 ```
 
+You can add ``debug=true`` to get more logs for debugging
+
 ```bash
 var paymentModule = require('iota-payment')
 var app = require('express')()
