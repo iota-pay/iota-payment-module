@@ -66,6 +66,11 @@
                     self.messages.push(msg)
                     console.log("msg", msg)
                 });
+                socket.on('payouts', function (msg) {
+                    // incoming ws message to array
+                    self.messages.push(msg)
+                    console.log("msg", msg)
+                });
                 socket.on('connect', () => {
                     //set clientid in case of a reconnection
                     if(typeof socketClientId != 'undefined'){
