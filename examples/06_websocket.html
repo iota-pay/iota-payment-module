@@ -23,6 +23,21 @@
         <pre id="paymentlist">
     <b>Payments:</b>
     </pre>
+    <div id="form2">
+      <p>Payout</p>
+      <form id ="payout" action="/" method="post">
+        <label>Address: </label>
+        <input id="data" type="text" name="data" size="90"><br>
+        <label>Value: </label>
+        <input id="data" type="text" name="data"><br>
+        <label>Message: </label>
+        <input id="data" type="text" name="data" size="50"><br>
+        <input class = "update_form" type="submit" value="Send payout">
+      </form>
+      <pre id="payoutlist">
+  <b>Payouts:</b>
+  </pre>
+    </div>
 <div id="app">
     <ul>
         <li v-for="(message, index) in messages" :key="index">{{message.status}}</li>
@@ -54,7 +69,7 @@
                 socket.on('connect', () => {
                     //set clientid in case of a reconnection
                     if(typeof socketClientId != 'undefined'){
-                      socket.emit('storeClientInfo', { paymentId: socketClientId });
+                      socket.emit('storeClientInfo', { paymentOrPayoutId: socketClientId });
                     }
                 });
             }
@@ -70,7 +85,7 @@
            success: function(data) {
                console.log(data); //show response
                //set client id
-               socket.emit('storeClientInfo', { paymentId: data.id });
+               socket.emit('storeClientInfo', { paymentOrPayoutId: data.id });
                socketClientId = data.id
                let htmldata = document.getElementById(`${type}list`)
                htmldata.innerHTML += JSON.stringify(data, null, 1)+'<br>'
