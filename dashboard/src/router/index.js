@@ -58,21 +58,22 @@ export const constantRoutes = [
   {
     path: '/payments',
     component: Layout,
-    redirect: '/payments/index',
     name: 'Payments',
-    meta: { title: 'Payments', icon: 'example' },
+    redirect: '/payments',
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Index', icon: 'table' }
+        component: () => import('@/views/payments/index'),
+        path: '/payments/list',
+        name: 'PaymentIndex',
+        meta: { title: 'Payments', icon: 'example' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: '/payments/:id(\\d+)',
+        component: () => import('@/views/payments/show'),
+        name: 'PaymentShow',
+        meta: { title: 'Details', noCache: true },
+        hidden: true,
+        props: true
       }
     ]
   },
