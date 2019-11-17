@@ -54,7 +54,6 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
   {
     path: '/payments',
     component: Layout,
@@ -71,6 +70,28 @@ export const constantRoutes = [
         path: '/payments/:id(\\d+)',
         component: () => import('@/views/payments/show'),
         name: 'PaymentShow',
+        meta: { title: 'Details', noCache: true },
+        hidden: true,
+        props: true
+      }
+    ]
+  },
+  {
+    path: '/payouts',
+    component: Layout,
+    name: 'Payouts',
+    redirect: '/payouts',
+    children: [
+      {
+        component: () => import('@/views/payouts/index'),
+        path: '/payouts/list',
+        name: 'PayoutIndex',
+        meta: { title: 'Payouts', icon: 'example' }
+      },
+      {
+        path: '/payouts/:id(\\d+)',
+        component: () => import('@/views/payouts/show'),
+        name: 'PayoutShow',
         meta: { title: 'Details', noCache: true },
         hidden: true,
         props: true
