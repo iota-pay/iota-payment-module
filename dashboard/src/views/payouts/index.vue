@@ -1,5 +1,6 @@
 <template>
   <div class="app-container">
+    <new-payout></new-payout>
     <el-table
       v-loading="listLoading"
       :data="list"
@@ -38,8 +39,10 @@
 
 <script>
 import { getPayouts } from '@/api/payouts'
+import newPayout from './new'
 
 export default {
+  components: { newPayout },
   filters: {
     statusFilter(status) {
       const statusMap = {
