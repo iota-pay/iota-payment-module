@@ -1,19 +1,34 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-text">name: {{ name }}</div>
+    <div v-if="balance" class="dashboard-text">balance: {{ balance }}</div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import { getBalance } from '@/api/account'
 
 export default {
   name: 'Dashboard',
+  data() {
+    return {
+      balance: undefined
+    }
+  },
   computed: {
     ...mapGetters(['name'])
   },
   created() {
-    console.log('yup')
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      this.listLoading = true
+      getBalance().then(response => {
+        this.balance = response
+      })
+    }
   }
 }
 </script>
