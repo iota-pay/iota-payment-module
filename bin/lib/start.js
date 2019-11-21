@@ -104,7 +104,7 @@ function bin(argv, server) {
   }
   app.listen(argv.port, function () {
     console.log(
-      `iotapay server (${argv.version}) running on \u001b[4mhttps://localhost:${argv.port}/\u001b[0m`
+      `iotapay server (${argv.version}) running on \u001b[4mhttp://localhost:${argv.port}/\u001b[0m`
     )
     console.log('Press <ctrl>+c to stop')
   })
