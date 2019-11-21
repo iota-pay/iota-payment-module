@@ -61,7 +61,7 @@ function bin(argv, server) {
   }
 
   // Set up port
-  argv.port = argv.port || 3000
+  argv.port = argv.port || 5000
 
   // Signal handling (e.g. CTRL+C)
   if (process.platform !== 'win32') {
@@ -75,8 +75,15 @@ function bin(argv, server) {
   // // Finally starting iotap
   const iotap = require('../../')
   let app
+  const options = {
+    value: 0,
+    websockets: true,
+    api: true,
+    dashboard: true
+    // ...
+  }
   try {
-    app = iotap.createServer(server, argv)
+    app = iotap.createServer(server, options)
   } catch (e) {
     if (e.code === 'EACCES') {
       if (e.syscall === 'mkdir') {

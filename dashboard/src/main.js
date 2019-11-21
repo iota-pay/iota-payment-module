@@ -15,6 +15,14 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+import IotaPayment from 'vue-iota-payment'
+
+Vue.use(IotaPayment, {
+  store, url: 'http://localhost:5000',
+  path: '/iotapay',
+  api_path: '/iotapay/api/payments'
+})
+
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api

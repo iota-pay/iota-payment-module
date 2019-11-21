@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'Vue Admin Template',
+  title: process.env.VUE_APP_FRONT_HEADLINE || 'IOTA Pay Storefront',
 
   /**
    * @type {boolean} true | false
