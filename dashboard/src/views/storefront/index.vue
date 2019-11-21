@@ -39,12 +39,11 @@ export default {
 
 <style lang="scss">
 :root {
-  --akita-primary: #00b0f0;
-  --akita-secondary: #00fb92;
-  --akita-dark: #3b3838;
-  --akita-light: #f2f2f2;
-  --akita-blue: #00b0f0;
-  --akita-dark-transparent: rgba(59, 56, 56, 0.5);
+  --primary: #558398;
+  --secondary: #558398;
+  --dark: #3b3838;
+  --light: #f2f2f2;
+  --dark-transparent: rgba(59, 56, 56, 0.5);
 }
 body {
   height: 100vh;
@@ -56,11 +55,11 @@ body {
   font-family: 'Oswald', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--akita-light);
+  color: var(--light);
   background: linear-gradient(
     to bottom right,
-    var(--akita-primary) 50%,
-    var(--akita-secondary) 85%
+    var(--primary) 50%,
+    var(--secondary) 85%
   );
 }
 .container {
@@ -69,7 +68,7 @@ body {
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
-  background: var(--akita-dark-transparent);
+  background: var(--dark-transparent);
   padding: 50px;
 }
 .title {
@@ -85,7 +84,7 @@ body {
     padding: 12px 24px;
     border-radius: 4px;
     color: #fff;
-    background: var(--akita-primary);
+    background: var(--primary);
     text-decoration: none;
     font-weight: 700;
     font-size: 18px;
