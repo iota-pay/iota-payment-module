@@ -11,7 +11,6 @@
 - [x] [Auto payment cleanup](https://github.com/machineeconomy/iota-payment/issues/18)
 - [ ] [MQTT Events](https://github.com/machineeconomy/iota-payment/issues/7)
 
-
 ## How to Use
 
 **Still in development and testing. Unexpected errors and loss of funds may occur. Feedback is welcome!**
@@ -41,12 +40,13 @@ MAX_PAYMENT_TIME=1440
 ```
 
 Optional add the following to have a payment success in seconds, don't use it with large amounts because a payment will be accepted before confirmation and an attacker could send the iotas to another address
+
 ```bash
 fast_but_risky=true
 zmq_node='tcp://tanglebeat.com:5556'
 ```
 
-You can add ``debug=true`` to get more logs for debugging
+You can add `debug=true` to get more logs for debugging
 
 ```bash
 var paymentModule = require('iota-payment')
@@ -78,8 +78,8 @@ You can help us too:
 - [Create a new issue](https://github.com/machineeconomy/iota-payment/issues/new) to report bugs
 - [Fix an issue](https://github.com/machineeconomy/iota-payment/issues)
 
-Have a look at [CONTRIBUTING.md](https://github.com/solid/node-solid-server/blob/master/CONTRIBUTING.md).
+Have a look at [CONTRIBUTING.md](https://github.com/machineeconomy/iota-payment/blob/master/CONTRIBUTING.md).
 
 ## License
 
-[The MIT License](https://github.com/solid/node-solid-server/blob/master/LICENSE.md)
+[The MIT License](https://github.com/machineeconomy/iota-payment/blob/master/LICENSE.md)
