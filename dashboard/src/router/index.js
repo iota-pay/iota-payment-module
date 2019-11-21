@@ -42,11 +42,14 @@ export const constantRoutes = [
     component: () => import('@/views/404'),
     hidden: true
   },
-
   {
     path: '/',
+    component: () => import('@/views/storefront/index'),
+    hidden: true
+  },
+  {
+    path: '/dashboard',
     component: Layout,
-    redirect: '/dashboard',
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
