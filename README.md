@@ -1,16 +1,5 @@
 # iota payment module
 
-## Module Features supported
-
-- [x] [Provide Enpoints for Payments]()
-- [x] [Generates save IOTA addresses]()
-- [ ] [Check incomming transactions on ZMQ stream](https://github.com/machineeconomy/iota-payment/issues/6)
-- [x] [Check transaction status (confirmed or not) ]()
-- [x] [JS Event handler]()
-- [x] [Payout functionality]()
-- [x] [Auto payment cleanup](https://github.com/machineeconomy/iota-payment/issues/18)
-- [ ] [MQTT Events](https://github.com/machineeconomy/iota-payment/issues/7)
-
 ## How to Use
 
 **Still in development and testing. Unexpected errors and loss of funds may occur. Feedback is welcome!**
