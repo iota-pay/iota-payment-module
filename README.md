@@ -18,6 +18,8 @@ $ npm install iota-payment
 
 Create a .env file with your settings
 
+Always start with a new unused seed!
+
 MAX_PAYMENT_TIME is the time until created paymentes aren't checked anymore in minutes
 
 If you want to send payouts, without receiving iotas via payments first, send the iotas to the first address of the seed (index 0)
