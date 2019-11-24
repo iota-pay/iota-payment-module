@@ -30,11 +30,12 @@ IOTANODE='https://nodes.thetangle.org:443'
 MAX_PAYMENT_TIME=1440
 ```
 
-Optional add the following to have a payment success in seconds, don't use it with large amounts because a payment will be accepted before confirmation and an attacker could send the iotas to another address
+Add `zmq` to check payment confirmations with zmq. Optional add `fast_but_risky` to have a payment success in seconds if a valid transaction was sent, don't use it with large amounts because a payment will be accepted before confirmation and an attacker could send the iotas to another address
 
 ```bash
-fast_but_risky=true
 zmq_node='tcp://tanglebeat.com:5556'
+zmq=true
+fast_but_risky=true
 ```
 
 You can add `debug=true` to get more logs for debugging
