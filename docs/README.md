@@ -112,14 +112,16 @@ Creates and returns a payment.
 
 ### Parameters
 
--   `value` **[number][32]?** amount of iotas - default: 0 (optional, default `0`)
--   `data` **any?** data for the payment
+-   `paymentInput` **[object][33]** data for the payment
+    -   `paymentInput.value` **value?** iota value
+    -   `paymentInput.timeUntilConfirmation` **timeUntilConfirmation?** time in seconds until the payment is confirmed, independent of the received amount
+    -   `paymentInput.data` **data?** additional data
 
 ### Examples
 
 ```javascript
-// create a payment
-paymentModule.payment.createPayment(1, { "test": "123" })
+// create a payment with the value option
+paymentModule.payment.createPayment({value: 1, data: { "test": "123" }})
  .then(payment => {
    console.log(payment)
  })
@@ -127,13 +129,33 @@ paymentModule.payment.createPayment(1, { "test": "123" })
    console.log(err)
  })
 //example payment:
-{ address:
- 'QXHAEPJSEIUAMMOUWDGYJD9MPPIGBYOPAQSPOZK9VZSGDVVV9SUJEYVXYRFL9KRRBWSDNIFGBDLH9DBADGABSCFTFD',
-index: 11,
-value: 1,
-data: { test: '123' },
+{ data: '',
 payed: false,
-id: '1570554460662' }
+txInfo: null,
+type: 'value',
+value: 1,
+address:
+ 'IDEAVKKGLZUCAZJEWOUXVCUYGPSINKJR9UVBEOXRNIOBJFAKUN9GVBDGVEVOOK9HVMMMFMDLZ9G9YFHPWULQWCXYVW',
+index: 49,
+id: '1575750004195'}
+// create a payment with the timeUntilConfirmation option
+paymentModule.payment.createPayment({timeUntilConfirmation: 180, data: { "test": "123" }})
+ .then(payment => {
+   console.log(payment)
+ })
+ .catch(err => {
+   console.log(err)
+ })
+//example payment:
+{ data: { test: '123' },
+payed: false,
+txInfo: null,
+type: 'time',
+confirmationTime: 1575750870,
+address:
+ 'BQGQONEUNQYDDEUFDZIJDTVTFUBSIQECBLPU9BNNDVPMXMKFCWYODBGSPHA9TYCFFSYGUH9OIZYDIGBMCXHRBEIIAX',
+index: 50,
+id: '1575750690816' }
 ```
 
 Returns **[object][33]** payment
