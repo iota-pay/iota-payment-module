@@ -115,6 +115,7 @@ Creates and returns a payment.
 -   `paymentInput` **[object][33]** data for the payment
     -   `paymentInput.value` **[number][32]?** iota value
     -   `paymentInput.timeUntilConfirmation` **[number][32]?** time in seconds until the payment is confirmed, independent of the received amount
+    -   `paymentInput.data` **any?** additional data
 
 ### Examples
 
