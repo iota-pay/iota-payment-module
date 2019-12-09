@@ -113,9 +113,8 @@ Creates and returns a payment.
 ### Parameters
 
 -   `paymentInput` **[object][33]** data for the payment
-    -   `paymentInput.value` **value?** iota value
-    -   `paymentInput.timeUntilConfirmation` **timeUntilConfirmation?** time in seconds until the payment is confirmed, independent of the received amount
-    -   `paymentInput.data` **data?** additional data
+    -   `paymentInput.value` **[number][32]?** iota value
+    -   `paymentInput.timeUntilConfirmation` **[number][32]?** time in seconds until the payment is confirmed, independent of the received amount
 
 ### Examples
 
