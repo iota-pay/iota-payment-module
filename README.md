@@ -38,7 +38,7 @@ zmq=true
 fast_but_risky=true
 ```
 
-You can add `debug=true` to get more logs for debugging
+You can add `debug=basic` or `debug=full` to get more logs for debugging
 
 ```bash
 var paymentModule = require('iota-payment')
