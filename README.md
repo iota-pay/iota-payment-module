@@ -20,14 +20,14 @@ Create a .env file with your settings
 
 Always start with a new unused seed!
 
-MAX_PAYMENT_TIME is the time until created paymentes aren't checked anymore in minutes
+MAX_PAYMENT_TIME is the time until created paymentes aren't checked anymore in minutes (4320 = 3 days to pay, transactions after that are ignored)
 
 If you want to send payouts, without receiving iotas via payments first, send the iotas to the first address of the seed (index 0)
 
 ```bash
 SEED='REPLACEWITHEIGHTYONETRYTESEED'
 IOTANODE='https://nodes.thetangle.org:443'
-MAX_PAYMENT_TIME=1440
+MAX_PAYMENT_TIME=4320
 ```
 
 Add `zmq` to check payment confirmations with zmq. Optional add `fast_but_risky` to have a payment success in seconds if a valid transaction was sent, don't use it with large amounts because a payment will be accepted before confirmation and an attacker could send the iotas to another address
