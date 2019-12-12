@@ -13,7 +13,6 @@ var onPaymentIncoming = function (payment) {
     console.log('payment incoming!', payment);
 }
 
-
 //Create an event handler which is called, when a payment was successfull
 var onPaymentSuccess = function (payment) {
     console.log('payment success!', payment);
@@ -22,4 +21,4 @@ var onPaymentSuccess = function (payment) {
 //Assign the event handler to the events:
 paymentModule.on('paymentCreated', onPaymentCreated);
 paymentModule.on('paymentIncoming', onPaymentIncoming);
-paymentModule.on('payoutSent', onPaymentSuccess);
+paymentModule.on('paymentSuccess', onPaymentSuccess);
