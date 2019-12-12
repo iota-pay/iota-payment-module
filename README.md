@@ -41,21 +41,27 @@ fast_but_risky=true
 You can add `debug=basic` or `debug=full` to get more logs for debugging
 
 ```bash
-var paymentModule = require('iota-payment')
-var app = require('express')()
+const paymentModule = require('iota-payment')
+//create a payment
+paymentModule.payment.createPayment({ value: 1 })
+  .then(payment => {
+    console.log(payment)
+  })
+  .catch(e => {
+    console.log(e)
+  })
 
-let server = paymentModule.createServer(app)
-
-// Start server with iota-payment module on '/payments'
-server.listen(3000, function () {
-    console.log(`Server started on http://localhost:3000 `)
-})
+//Create an event handler which is called, when a payment was successfull
+let onPaymentSuccess = function (payment) {
+  console.log('payment success!', payment);
+}
+paymentModule.on('paymentSuccess', onPaymentSuccess);
 ```
 
 ### Examples
 
 - [01_simple_server](./examples/01_simple_server.js)
-- [02_custom_server](./examples/02_custom_server.js)
+- [02 express_server_with_gui+api](./examples/02_express_server_with_gui+api.js)
 - [03_events](./examples/03_events.js)
 - [04_payment](./examples/04_payment.js)
 - [05_payout](./examples/05_payout.js)
