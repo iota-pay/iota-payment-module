@@ -44,15 +44,13 @@ app.post('/payout', async (req, res) => {
 })
 
 var options = {
-    mount: '/payments',
-    value: 0,
     websockets: true
     // ...
 }
 
 let server = paymentModule.createServer(app, options)
 
-// Start server with iota-payment module on '/payments'
+// Start server
 server.listen(3000, function () {
     console.log(`Server started on http://localhost:3000 `)
 })

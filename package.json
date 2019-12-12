@@ -9,7 +9,8 @@
     "lint": "eslint lib --color",
     "p": "prettier --write \"lib/**/*.js\"",
     "p:w": "onchange \"lib/**/*.js\" -- prettier --write {{changed}}",
-    "docs:build": "documentation build lib/** -f md -o docs/README.md"
+    "docs:build": "documentation build lib/** -f md -o docs/README.md",
+    "build:dashboard": "cd ./dashboard && npm i && npm run build:prod"
   },
   "author": "huhn511",
   "license": "MIT",

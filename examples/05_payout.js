@@ -3,7 +3,7 @@ var paymentModule = require('..')
 let payoutObject = {
   //required
   address: 'IKTYKKCZFZZECSFIJYWYSUUTXCIBNIFPFSPGUIUUAYONDYUSHEZVQBNPDYUTDMTNTHBLABCYYLZKLGIVCINGBALQVX', 
-  value: 1, 
+  value: 0, 
   //optional
   message: 'Example message',
   tag: 'TRYTETAG',

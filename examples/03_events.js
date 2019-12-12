@@ -1,21 +1,7 @@
 var paymentModule = require('..')
-var app = require('express')()
 
-var options = {
-    mount: '/',
-    value: 1
-    // ...
-}
-app.get("/", function (req, res) {
-    res.send('hello world from 03_events example!');
-});
-
-let server = paymentModule.createServer(app, options)
-
-// Start server with iota-payment module on '/'
-server.listen(3000, function () {
-    console.log(`Server started on http://localhost:3000 `)
-})
+// Start server with iota-payment module on
+paymentModule.createServer()
 
 //Create an event handler which is called, when a payment was created
 var onPaymentCreated = function (payment) {

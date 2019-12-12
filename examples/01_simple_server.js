@@ -1,9 +1,4 @@
-var paymentModule = require('..')
-var app = require('express')()
+const paymentModule = require('..')
 
-let server = paymentModule.createServer(app)
-
-// Start server with iota-payment module on '/'
-server.listen(3000, function () {
-    console.log(`Server started on http://localhost:3000 `)
-})
+// Start iota-payment module
+paymentModule.createServer()
