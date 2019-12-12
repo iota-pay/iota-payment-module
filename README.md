@@ -41,7 +41,7 @@ fast_but_risky=true
 
 You can add `debug=basic` or `debug=full` to get more logs for debugging
 
-```bash
+```JS
 const paymentModule = require('iota-payment')
 //create a payment
 paymentModule.payment.createPayment({ value: 1 })
