@@ -63,8 +63,9 @@ Creates and returns a express server.
 
 -   `app` **[object][33]** an express application.
 -   `options` **[object][33]** an options object. (optional, default `{}`)
-    -   `options.mount` **[String][34]** The payment route name.
-    -   `options.value` **[Number][32]** The default IOTA value.
+    -   `options.websockets` **[Boolean][34]** websockets.
+    -   `options.dashboard` **[Boolean][34]** dashboard at /iotapay.
+    -   `options.api` **[Boolean][34]** api at /iotapay/api.
 
 ### Examples
 
@@ -73,9 +74,9 @@ Creates and returns a express server.
 var paymentModule = require('iota-payment')
 var app = require('express')()
 
-let server = paymentModule.createServer(app, {mount: '/payments'})
+let server = paymentModule.createServer(app, {api: true})
 
-// Start server with iota-payment module on '/payments'
+// Start server with iota-payment api on '/iotapay/api'
 server.listen(3000, function () {
    console.log(`Server started on http://localhost:3000 `)
 })
@@ -266,8 +267,8 @@ Creates and returns a payout.
 -   `payoutData` **[object][33]** data for the payout
     -   `payoutData.address` **address** 90 trytes iota address (with checksum)
     -   `payoutData.amount` **[number][32]** amount of iotas
-    -   `payoutData.message` **[string][34]?** message which will be send with the transaction
-    -   `payoutData.tag` **[string][34]?** tryte tag
+    -   `payoutData.message` **[string][37]?** message which will be send with the transaction
+    -   `payoutData.tag` **[string][37]?** tryte tag
     -   `payoutData.startIndex` **[number][32]?** custom start index to search for inputaddresses
     -   `payoutData.endIndex` **[number][32]?** custom end index to search for inputaddresses
 
@@ -438,10 +439,10 @@ Returns **[Object][33]** payment
 WebSockets with socket.io
 
 backend:
-[https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websockets.js][37]
+[https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websockets.js][38]
 
 frontend:
-[https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websocket.html][38]
+[https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websocket.html][39]
 
 [1]: #getbalance
 
@@ -509,12 +510,14 @@ frontend:
 
 [33]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[34]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[34]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
 [35]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
 [36]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-[37]: https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websockets.js
+[37]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[38]: https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websocket.html
+[38]: https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websockets.js
+
+[39]: https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websocket.html

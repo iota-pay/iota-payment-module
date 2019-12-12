@@ -76,7 +76,6 @@ function bin(argv, server) {
   const iotap = require('../../')
   let app
   const options = {
-    value: 0,
     websockets: true,
     api: true,
     dashboard: true
