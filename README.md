@@ -27,6 +27,7 @@ If you want to send payouts, without receiving iotas via payments first, send th
 ```bash
 SEED='REPLACEWITHEIGHTYONETRYTESEED'
 IOTANODE='https://nodes.thetangle.org:443'
+FALLBACKNODE='https://node01.iotatoken.nl'
 MAX_PAYMENT_TIME=4320
 ```
 

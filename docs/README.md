@@ -87,6 +87,9 @@ Returns **[object][33]** an http server
 ## on
 
 This method attaches an event listener.
+Possible events:
+\-payments: 'paymentCreated', 'paymentPending', 'paymentIncoming', 'paymentSuccess'
+\-payouts: 'payoutCreated', 'payoutSent'
 
 ### Parameters
 
@@ -96,10 +99,10 @@ This method attaches an event listener.
 ### Examples
 
 ```javascript
-var paymentModule = require('iota-payment')
+const paymentModule = require('iota-payment')
 
 //Create an event handler which is called, when a payment was successfull
-var onPaymentSuccess = function (payment) {
+let onPaymentSuccess = function (payment) {
     console.log('payment success!', payment);
 }
 
