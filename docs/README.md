@@ -272,6 +272,7 @@ Creates and returns a payout.
     -   `payoutData.amount` **[number][32]** amount of iotas
     -   `payoutData.message` **[string][37]?** message which will be send with the transaction
     -   `payoutData.tag` **[string][37]?** tryte tag
+    -   `payoutData.data` **any?** additional data
     -   `payoutData.startIndex` **[number][32]?** custom start index to search for inputaddresses
     -   `payoutData.endIndex` **[number][32]?** custom end index to search for inputaddresses
 
@@ -286,6 +287,7 @@ let payoutObject = {
   //optional
   message: 'Example message',
   tag: 'TRYTETAG',
+  data: {test: 27},
   //indexes for input addresses, only required in special cases
   // startIndex: 0,
   // endIndex: 1
@@ -303,6 +305,7 @@ paymentModule.payout.send(payoutObject)
 value: 1,
 message: 'Example message',
 tag: 'TRYTETAG',
+data: {test: 27},
 payed: false,
 id: '1570619992125' }
 ```
