@@ -41,10 +41,12 @@ fast_but_risky=true
 
 You can add `debug=basic` or `debug=full` to get more logs for debugging
 
+### Examples
+
 ```JS
 const paymentModule = require('iota-payment')
 //create a payment
-paymentModule.payment.createPayment({ value: 1 })
+paymentModule.payment.createPayment({ value: 1, data: {name: 'Carlos'} })
   .then(payment => {
     console.log(payment)
   })
@@ -54,12 +56,11 @@ paymentModule.payment.createPayment({ value: 1 })
 
 //Create an event handler which is called, when a payment was successfull
 let onPaymentSuccess = function (payment) {
-  console.log('payment success!', payment);
+  //your code
+  console.log(`Payment received from ${payment.data.name}:`, payment);
 }
 paymentModule.on('paymentSuccess', onPaymentSuccess);
 ```
-
-### Examples
 
 - [01_simple_server](./examples/01_simple_server.js)
 - [02 express_server_with_gui+api](./examples/02_express_server_with_gui+api.js)
