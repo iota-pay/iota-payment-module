@@ -31,6 +31,12 @@ FALLBACKNODE='https://node01.iotatoken.nl'
 MAX_PAYMENT_TIME=4320
 ```
 
+Add `socket_origins` to allow other websocket origins than 'http://localhost:* http://127.0.0.1:*'
+
+```bash
+socket_origins=http://localhost:* http://127.0.0.1:*
+```
+
 Add `zmq` to check payment confirmations with zmq. Optional add `fast_but_risky` to have a payment success in seconds if a valid transaction was sent, don't use it with large amounts because a payment will be accepted before confirmation and an attacker could send the iotas to another address
 
 ```bash
