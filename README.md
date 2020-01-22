@@ -37,6 +37,12 @@ Add `socket_origins` to allow other websocket origins than 'http://localhost:* h
 socket_origins=http://localhost:* http://127.0.0.1:*
 ```
 
+Add `minPaymentIntervals` to limit the payment (address) generation over the API in seconds; to allow only 1 every 10 seconds:
+
+```bash
+minPaymentIntervals=10
+```
+
 Add `zmq` to check payment confirmations with zmq. Optional add `fast_but_risky` to have a payment success in seconds if a valid transaction was sent, don't use it with large amounts because a payment will be accepted before confirmation and an attacker could send the iotas to another address
 
 ```bash
