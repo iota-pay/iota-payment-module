@@ -27,7 +27,7 @@
     -   [Examples][23]
 -   [getPayouts][24]
     -   [Examples][25]
--   [getOpenpayouts][26]
+-   [getOpenPayouts][26]
     -   [Examples][27]
 -   [getPayoutByID][28]
     -   [Parameters][29]
@@ -384,7 +384,7 @@ paymentModule.payout.getPayouts()
 
 Returns **[Array][38]&lt;[Object][35]>** payouts
 
-## getOpenpayouts
+## getOpenPayouts
 
 Returns open payouts
 
@@ -392,7 +392,7 @@ Returns open payouts
 
 ```javascript
 // get open payouts
-paymentModule.payout.getOpenpayouts()
+paymentModule.payout.getOpenPayouts()
  .then(payouts => {
    console.log(payouts)
  })
@@ -535,7 +535,7 @@ frontend:
 
 [25]: #examples-9
 
-[26]: #getopenpayouts
+[26]: #getOpenPayouts
 
 [27]: #examples-10
 
