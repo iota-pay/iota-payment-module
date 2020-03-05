@@ -4,6 +4,7 @@
   "description": "iota payment module for nodejs applications.",
   "main": "index.js",
   "scripts": {
+    "start": "node ./bin/iotapay start server",
     "iotapay": "node ./bin/iotapay",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint lib --color",
