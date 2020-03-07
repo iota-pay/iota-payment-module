@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-  build:
+  publish-tangle:
     name: Create Immutable Release
     runs-on: ubuntu-latest
     steps:
