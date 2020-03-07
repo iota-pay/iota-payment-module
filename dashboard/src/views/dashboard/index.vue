@@ -1,39 +1,26 @@
 <template>
   <div class="dashboard-container">
+    <h2>IPM Dashboard</h2>
+    <panel-group />
     <div class="dashboard-text">name: {{ name }}</div>
-    <div v-if="balance" class="dashboard-text">balance: {{ balance }}</div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { getBalance } from '@/api/account'
+import PanelGroup from './components/PanelGroup'
 
 export default {
   name: 'Dashboard',
-  data() {
-    return {
-      balance: undefined
-    }
-  },
+  components: { PanelGroup },
   computed: {
     ...mapGetters(['name'])
-  },
-  created() {
-    this.fetchData()
-  },
-  methods: {
-    fetchData() {
-      this.listLoading = true
-      getBalance().then(response => {
-        this.balance = response
-      })
-    }
-  }
+  } 
 }
 </script>
 
 <style lang="scss" scoped>
+
 .dashboard {
   &-container {
     margin: 30px;
