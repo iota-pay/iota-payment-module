@@ -17,7 +17,7 @@
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <router-link to="/iotapay">
+          <router-link to="/">
             <el-dropdown-item>
               Back to Store
             </el-dropdown-item>
