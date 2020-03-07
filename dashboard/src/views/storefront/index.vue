@@ -38,30 +38,7 @@ export default {
 </script>
 
 <style lang="scss">
-:root {
-  --primary: #558398;
-  --secondary: #558398;
-  --dark: #3b3838;
-  --light: #f2f2f2;
-  --dark-transparent: rgba(59, 56, 56, 0.5);
-}
-body {
-  height: 100vh;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-}
-#app {
-  font-family: 'Oswald', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--light);
-  background: linear-gradient(
-    to bottom right,
-    var(--primary) 50%,
-    var(--secondary) 85%
-  );
-}
+
 .container {
   position: fixed;
   top: 50%;
