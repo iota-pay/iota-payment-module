@@ -16,7 +16,19 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-
+  build:
+    name: Create Immutable Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tangle Release
+        id: tangle_release
+        uses: iotaledger/gh-tangle-release@v0.6.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IOTA_SEED: ${{ secrets.IOTA_SEED }}
+        with:
+          tag_name: ${{ github.ref }}
+          comment: foo
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
