@@ -10,7 +10,7 @@
       >
     </div>
     <div>
-      <a href="/iotapay/#/dashboard">Dashboard</a>
+      <router-link to="/dashboard/dashboard">Dashboard</router-link>
     </div>
   </div>
 </template>
@@ -47,6 +47,7 @@ export default {
   transform: translate(-50%, -50%);
   background: var(--dark-transparent);
   padding: 50px;
+  text-align: center;
 }
 .title {
   font-size: 4em;
@@ -60,8 +61,8 @@ export default {
     text-align: center;
     padding: 12px 24px;
     border-radius: 4px;
-    color: #fff;
-    background: var(--primary);
+    color: #efefef;
+    background-color: #263445;
     text-decoration: none;
     font-weight: 700;
     font-size: 18px;
@@ -74,6 +75,9 @@ export default {
       cursor: pointer;
       --y: -2px;
       box-shadow: 0 8px 16px var(--shadow);
+      background-color: #3d4449;
+      color: #409EFF;
+
     }
     &:active {
       --y: 1px;
