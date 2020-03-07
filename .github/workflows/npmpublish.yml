@@ -26,6 +26,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           IOTA_SEED: ${{ secrets.IOTA_SEED }}
+          IOTA_NODE: ${{ secrets.IOTA_NODE }} # Optional, defaults to https://nodes.iota.org:443
         with:
           tag_name: ${{ github.ref }}
           comment: foo
