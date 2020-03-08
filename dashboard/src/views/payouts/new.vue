@@ -56,9 +56,12 @@ export default {
       sendPayout(this.form).then(
         response => {
           console.log('response', response)
+           this.dialogTableVisible = false
+            // TODO: show success notification
         },
         err => {
           console.log('err', err)
+          // TODO: show err notification
         }
       )
     }
