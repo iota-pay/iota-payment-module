@@ -7,14 +7,15 @@ app.get("/", (req, res) => {
 
 let options = {
     api: true,
-    //"npm run build:dashboard" is required for the dashboard
-    dashboard: true
+    dashboard: true,
+    websockets: true
     // ...
 }
 
 let server = paymentModule.createServer(app, options)
 
 // Start server with iota-payment dashboard on '/iotapay' and api on '/iotapay/api'
-server.listen(3000, () => {
-    console.log(`Server started on http://localhost:3000 `)
+server.listen(5000, () => {
+    console.log(`Server started on http://localhost:5000 `)
+    console.info(`Please visit http://localhost:5000/iotapay in your browser`)
 })
