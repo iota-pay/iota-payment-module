@@ -58,10 +58,18 @@ export default {
           console.log('response', response)
            this.dialogTableVisible = false
             // TODO: show success notification
+            this.$message({
+              message: 'Created payout!',
+              type: 'success'
+            })
         },
         err => {
           console.log('err', err)
           // TODO: show err notification
+          this.$message({
+            message: 'Error creating payout!',
+            type: 'error'
+          })
         }
       )
     }
