@@ -9,18 +9,17 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
-      <a class="right-menu-item" href="/iotapay/">
-        Store
-      </a>
+      
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="avatar + '?imageView2/1/w/80/h/80'" class="user-avatar" />
+          {{ name }}
+          <svg-icon icon-class="user" class-name="user-avatar" />
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
           <router-link to="/">
             <el-dropdown-item>
-              Home
+              Back to Store
             </el-dropdown-item>
           </router-link>
           <a
@@ -55,7 +54,7 @@ export default {
     Hamburger
   },
   computed: {
-    ...mapGetters(['sidebar', 'avatar'])
+    ...mapGetters(['sidebar', 'name'])
   },
   methods: {
     toggleSideBar() {

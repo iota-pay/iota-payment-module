@@ -10,7 +10,7 @@
       >
     </div>
     <div>
-      <a href="/iotapay/#/dashboard">Dashboard</a>
+      <router-link to="/dashboard/dashboard">Dashboard</router-link>
     </div>
   </div>
 </template>
@@ -38,30 +38,7 @@ export default {
 </script>
 
 <style lang="scss">
-:root {
-  --primary: #558398;
-  --secondary: #558398;
-  --dark: #3b3838;
-  --light: #f2f2f2;
-  --dark-transparent: rgba(59, 56, 56, 0.5);
-}
-body {
-  height: 100vh;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-}
-#app {
-  font-family: 'Oswald', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--light);
-  background: linear-gradient(
-    to bottom right,
-    var(--primary) 50%,
-    var(--secondary) 85%
-  );
-}
+
 .container {
   position: fixed;
   top: 50%;
@@ -70,6 +47,7 @@ body {
   transform: translate(-50%, -50%);
   background: var(--dark-transparent);
   padding: 50px;
+  text-align: center;
 }
 .title {
   font-size: 4em;
@@ -83,8 +61,8 @@ body {
     text-align: center;
     padding: 12px 24px;
     border-radius: 4px;
-    color: #fff;
-    background: var(--primary);
+    color: #efefef;
+    background-color: #263445;
     text-decoration: none;
     font-weight: 700;
     font-size: 18px;
@@ -97,6 +75,9 @@ body {
       cursor: pointer;
       --y: -2px;
       box-shadow: 0 8px 16px var(--shadow);
+      background-color: #3d4449;
+      color: #409EFF;
+
     }
     &:active {
       --y: 1px;
