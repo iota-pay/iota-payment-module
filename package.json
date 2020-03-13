@@ -1,6 +1,6 @@
 {
   "name": "iota-payment",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "description": "iota payment module for nodejs applications.",
   "main": "index.js",
   "scripts": {
