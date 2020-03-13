@@ -1,6 +1,6 @@
 {
   "name": "iota-payment",
-  "version": "0.0.29",
+  "version": "0.0.35",
   "description": "iota payment module for nodejs applications.",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "express": "^4.17.1",
     "fs-extra": "^8.1.0",
     "lowdb": "^1.0.0",
-    "mongodb": "^3.5.4",
+    "mongodb": "^3.5.5",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "request": "^2.88.0",
