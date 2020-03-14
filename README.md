@@ -87,11 +87,11 @@ This module is only possible because of a large community of contributors. A hea
 
 You can help us too:
 
-- [Create a new issue](https://github.com/machineeconomy/iota-payment/issues/new) to report bugs
-- [Fix an issue](https://github.com/machineeconomy/iota-payment/issues)
+- [Create a new issue](https://github.com/iota-pay/iota-payment-module/issues/new) to report bugs
+- [Fix an issue](https://github.com/iota-pay/iota-payment-module/issues)
 
-Have a look at [CONTRIBUTING.md](https://github.com/machineeconomy/iota-payment/blob/master/CONTRIBUTING.md).
+Have a look at [CONTRIBUTING.md](https://github.com/iota-pay/iota-payment-module/blob/master/CONTRIBUTING.md).
 
 ## License
 
-[The MIT License](https://github.com/machineeconomy/iota-payment/blob/master/LICENSE.md)
+[The MIT License](https://github.com/iota-pay/iota-payment-module/blob/master/LICENSE.md)
