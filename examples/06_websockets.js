@@ -13,7 +13,7 @@ app.post('/payment', async (req, res) => {
     let value = inputdata[0]
     let data = inputdata[1]
     //create payment
-    let payment = await paymentModule.payment.createPayment({value, data})
+    let payment = await paymentModule.createPaymentRequest({value, data})
     res.send(payment)
   } catch (err) {
     res.send(err)
@@ -32,7 +32,7 @@ app.post('/payout', async (req, res) => {
       message = data[2],
       tag = ''
 
-    let payout = await paymentModule.payout.send({ address, value, message, tag })
+    let payout = await paymentModule.sendPayout({ address, value, message, tag })
     res.send(payout)
     console.log("payout", payout)
 

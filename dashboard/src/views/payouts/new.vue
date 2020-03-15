@@ -27,7 +27,7 @@
 <script>
 import elDragDialog from '@/directive/el-drag-dialog' // base on element-ui
 import { getBalance } from '@/api/account'
-import { sendPayout } from '@/api/payouts'
+import { sendPayoutBundle } from '@/api/payouts'
 
 export default {
   directives: { elDragDialog },
@@ -81,7 +81,7 @@ export default {
 
       this.$refs[formName].validate((valid) => {
           if (valid) {
-            sendPayout(this.form).then(
+            sendPayoutBundle(this.form).then(
               response => {
                 console.log('response', response)
                 this.dialogTableVisible = false

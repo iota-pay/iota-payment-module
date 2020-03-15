@@ -58,7 +58,7 @@ You can add `debug=basic` or `debug=full` to get more logs for debugging
 ```JS
 const paymentModule = require('iota-payment')
 //create a payment
-paymentModule.payment.createPayment({ value: 1, data: {name: 'Carlos'} })
+paymentModule.createPaymentRequest({ value: 1, data: {name: 'Carlos'} })
   .then(payment => {
     console.log(payment)
   })
@@ -71,7 +71,7 @@ let onPaymentSuccess = function (payment) {
   //your code
   console.log(`Payment received from ${payment.data.name}:`, payment);
 }
-paymentModule.on('paymentSuccess', onPaymentSuccess);
+paymentModule.onEvent('paymentSuccess', onPaymentSuccess);
 ```
 
 - [01_simple_server](./examples/01_simple_server.js)

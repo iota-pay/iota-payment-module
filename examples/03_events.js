@@ -19,6 +19,6 @@ var onPaymentSuccess = function (payment) {
 }
 
 //Assign the event handler to the events:
-paymentModule.on('paymentCreated', onPaymentCreated);
-paymentModule.on('paymentIncoming', onPaymentIncoming);
-paymentModule.on('paymentSuccess', onPaymentSuccess);
+paymentModule.onEvent('paymentCreated', onPaymentCreated);
+paymentModule.onEvent('paymentIncoming', onPaymentIncoming);
+paymentModule.onEvent('paymentSuccess', onPaymentSuccess);

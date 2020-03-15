@@ -11,7 +11,7 @@ let payoutObject = {
   // starIndex: 0,
   // endIndex: 1
 }
-paymentModule.payout.send(payoutObject)
+paymentModule.sendPayout(payoutObject)
 .then(result => {
   console.log("result", result)
 })

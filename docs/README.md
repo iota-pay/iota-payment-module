@@ -109,7 +109,7 @@ let onPaymentSuccess = function (payment) {
 }
 
 //Assign the event handler to an event:
-paymentModule.on('paymentSuccess', onPaymentSuccess);
+paymentModule.onEvent('paymentSuccess', onPaymentSuccess);
 ```
 
 ## createPayment
@@ -127,7 +127,7 @@ Creates and returns a payment.
 
 ```javascript
 // create a payment with the value option
-paymentModule.payment.createPayment({value: 1, data: { "test": "123" }})
+paymentModule.payment.createPaymentRequest({value: 1, data: { "test": "123" }})
  .then(payment => {
    console.log(payment)
  })
@@ -145,7 +145,7 @@ address:
 index: 49,
 id: '1575750004195'}
 // create a payment with the timeUntilConfirmation option
-paymentModule.payment.createPayment({timeUntilConfirmation: 180, data: { "test": "123" }})
+paymentModule.payment.createPaymentRequest({timeUntilConfirmation: 180, data: { "test": "123" }})
  .then(payment => {
    console.log(payment)
  })
@@ -278,7 +278,7 @@ Returns payment by id
 
 ```javascript
 // get payment by id
-paymentModule.payment.getPaymentByID('1570564499942')
+paymentModule.getPayment({id:'1570564499942'})
  .then(payment => {
    console.log(payment)
  })
@@ -327,7 +327,7 @@ let payoutObject = {
   // startIndex: 0,
   // endIndex: 1
 }
-paymentModule.payout.send(payoutObject)
+paymentModule.send(payoutObject)
  .then(payout => {
    console.log(payout)
  })
@@ -355,7 +355,7 @@ Returns all payouts
 
 ```javascript
 // get payouts
-paymentModule.payout.getPayouts()
+paymentModule.getPayouts()
  .then(payouts => {
    console.log(payouts)
  })
@@ -392,7 +392,7 @@ Returns open payouts
 
 ```javascript
 // get open payouts
-paymentModule.payout.getOpenPayouts()
+paymentModule.getOpenPayouts()
  .then(payouts => {
    console.log(payouts)
  })
@@ -425,7 +425,7 @@ Returns payout by id
 
 ```javascript
 // get payout by id
-paymentModule.payout.getPayoutByID('1570611186704')
+paymentModule.getPayoutByID('1570611186704')
  .then(payout => {
    console.log(payout)
  })
@@ -455,7 +455,7 @@ Returns payout by txhash
 
 ```javascript
 // get payout by txhash
-paymentModule.payout.getPayoutByTxhash('XKLLL9B9AUN9EASCAQAQHEYDLLEUDDUCOTJVNTJUSZVTNWUTDPHZUFUJAHFZJOSQYYEPJSWRDXDJ99999')
+paymentModule.getPayoutByTxhash('XKLLL9B9AUN9EASCAQAQHEYDLLEUDDUCOTJVNTJUSZVTNWUTDPHZUFUJAHFZJOSQYYEPJSWRDXDJ99999')
  .then(payout => {
   console.log(payout)
  })
