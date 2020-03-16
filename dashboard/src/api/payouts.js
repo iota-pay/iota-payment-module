@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-export function sendPayout(params) {
+export function sendPayoutBundle(params) {
   return request({
     url: '/payouts',
     method: 'post',
