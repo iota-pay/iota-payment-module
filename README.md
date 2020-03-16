@@ -1,5 +1,18 @@
 # iota payment module
 
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/iota-pay/iota-payment-module.svg)](https://github.com/iota-pay/iota-payment-module/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![node](https://img.shields.io/badge/node-%3E%3Dv12.14.0-brightgreen.svg)](https://nodejs.org/download/release/v12.14.0/)
+[![npm](https://img.shields.io/npm/dt/iota-payment.svg)](https://www.npmjs.com/package/iota-payment)
+[![Dependency Status](https://img.shields.io/david/iota-pay/iota-payment-module.svg)](https://david-dm.org/iota-pay/iota-payment-module)
+[![DevDependency Status](https://img.shields.io/david/iota-pay/iota-payment-module.svg?label=devDependencies)](https://david-dm.org/iota-pay/iota-payment-module?type=dev)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/iota-pay/iota-payment-module)
+
+[![NPM](https://nodei.co/npm/iota-payment.png)](https://nodei.co/npm/iota-payment/)
+
+[![Join Discord](https://img.shields.io/discord/446950114913943562?logo=discord&label=join%20discord)](https://discord.gg/C5PKFX)
+[![Follow on Twitter](https://img.shields.io/twitter/follow/einfachIOTA?style=social&logo=twitter)](https://twitter.com/intent/follow?screen_name=einfachIOTA)
+
 ## How to Use
 
 **Still in development and testing. Unexpected errors and loss of funds may occur. Feedback is welcome!**
