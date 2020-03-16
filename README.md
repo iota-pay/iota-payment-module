@@ -53,6 +53,11 @@ fast_but_risky=true
 
 You can add `debug=basic` or `debug=full` to get more logs for debugging
 
+```bash
+deletePaidEntries=true
+db=mongodb
+```
+
 ### Examples
 
 ```JS
