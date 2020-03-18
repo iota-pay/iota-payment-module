@@ -31,45 +31,58 @@ $ npm install iota-payment
 
 Create a .env file with your settings
 
-Always start with a new unused seed!
+Always start with a new unused [seed](https://docs.iota.org/docs/getting-started/0.1/clients/seeds)!
 
-MAX_PAYMENT_TIME is the time until created paymentes aren't checked anymore in minutes (4320 = 3 days to pay, transactions after that are ignored)
+Minimum requirement to use it in the devnet:
+
+```bash
+seed='REPLACEWITHEIGHTYONETRYTESEED'
+```
+
+
+
+maxPaymentTime is the time until created paymentes aren't checked anymore in minutes (4320 = 3 days to pay, transactions after that are ignored)
 
 If you want to send payouts, without receiving iotas via payments first, send the iotas to the first address of the seed (index 0)
 
 ```bash
-SEED='REPLACEWITHEIGHTYONETRYTESEED'
-IOTANODE='https://nodes.thetangle.org:443'
-FALLBACKNODE='https://node01.iotatoken.nl'
-MAX_PAYMENT_TIME=4320
+seed='REPLACEWITHEIGHTYONETRYTESEED'
+iotaNodes=["https://nodes.devnet.thetangle.org:443", "https://nodes.devnet.iota.org:443"]
+maxPaymentTime=4320
 ```
 
-Add `socket_origins` to allow other websocket origins than 'http://localhost:* http://127.0.0.1:*'
+Add `socketOrigins` to allow other websocket origins than 'http://localhost:* http://127.0.0.1:*'
 
 ```bash
-socket_origins=http://localhost:* http://127.0.0.1:*
+socketOrigins=http://localhost:* http://127.0.0.1:*
 ```
 
-Add `minPaymentIntervals` to limit the payment (address) generation over the API in seconds; to allow only 1 every 10 seconds:
+Add `minPaymentInterval` to limit the payment (address) generation over the API in seconds; to allow only 1 every 10 seconds:
 
 ```bash
-minPaymentIntervals=10
+minPaymentInterval=10
 ```
 
-Add `zmq` to check payment confirmations with zmq. Optional add `fast_but_risky` to have a payment success in seconds if a valid transaction was sent, don't use it with large amounts because a payment will be accepted before confirmation and an attacker could send the iotas to another address
+Add `zmq` to check payment confirmations with zmq. Optional add `fastButRisky` to have a payment success in seconds if a valid transaction was sent, don't use it with large amounts because a payment will be accepted before confirmation and an attacker could send the iotas to another address
 
 ```bash
-zmq_node='tcp://tanglebeat.com:5556'
+zmqNode='tcp://tanglebeat.com:5556'
 zmq=true
-fast_but_risky=true
+fastButRisky=true
 ```
 
 You can add `debug=basic` or `debug=full` to get more logs for debugging
 
+Could be used:
+
 ```bash
 deletePaidEntries=true
 db=mongodb
+mongodbUrl="mongodb://127.0.0.1:27017/"
 wereAddressSpentCheck=false
+network='mainnet'
+mwm=14
+explorerTxLink='https://devnet.thetangle.org/transaction/'
 ```
 
 ### Examples
