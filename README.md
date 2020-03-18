@@ -83,6 +83,7 @@ wereAddressSpentCheck=false
 network='mainnet'
 mwm=14
 explorerTxLink='https://devnet.thetangle.org/transaction/'
+maxBundleSize=7
 ```
 
 ### Examples
