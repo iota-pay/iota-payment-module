@@ -51,10 +51,10 @@ iotaNodes=["https://nodes.devnet.thetangle.org:443", "https://nodes.devnet.iota.
 maxPaymentTime=4320
 ```
 
-Add `socketOrigins` to allow other websocket origins than 'http://localhost:* http://127.0.0.1:*'
+Add `socketOrigins` to allow other websocket origins than http://localhost:* and http://127.0.0.1:*
 
 ```bash
-socketOrigins=http://localhost:* http://127.0.0.1:*
+socketOrigins=['http://localhost:*', 'http://127.0.0.1:*']
 ```
 
 Add `minPaymentInterval` to limit the payment (address) generation over the API in seconds; to allow only 1 every 10 seconds:
