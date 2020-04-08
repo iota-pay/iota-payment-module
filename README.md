@@ -1,15 +1,8 @@
 # iota payment module
 
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/iota-pay/iota-payment-module.svg)](https://github.com/iota-pay/iota-payment-module/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![node](https://img.shields.io/badge/node-%3E%3Dv12.14.0-brightgreen.svg)](https://nodejs.org/download/release/v12.14.0/)
-[![npm](https://img.shields.io/npm/dt/iota-payment.svg)](https://www.npmjs.com/package/iota-payment)
 [![Dependency Status](https://img.shields.io/david/iota-pay/iota-payment-module.svg)](https://david-dm.org/iota-pay/iota-payment-module)
-[![DevDependency Status](https://img.shields.io/david/iota-pay/iota-payment-module.svg?label=devDependencies)](https://david-dm.org/iota-pay/iota-payment-module?type=dev)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/iota-pay/iota-payment-module)
-
-[![NPM](https://nodei.co/npm/iota-payment.png)](https://nodei.co/npm/iota-payment/)
-
 [![Join Discord](https://img.shields.io/discord/446950114913943562?logo=discord&label=join%20discord)](https://discord.gg/hWeH9qV)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/einfachIOTA?style=social&logo=twitter)](https://twitter.com/intent/follow?screen_name=einfachIOTA)
 
@@ -18,8 +11,6 @@
 **Still in development and testing. Unexpected errors and loss of funds may occur. Feedback is welcome!**
 
 This module can easily extend your nodejs or express app.
-
-[Docs](./docs)
 
 ### Install
 
@@ -39,52 +30,9 @@ Minimum requirement to use it in the devnet:
 seed=REPLACEWITHEIGHTYONETRYTESEED
 ```
 
-maxPaymentTime is the time until created paymentes aren't checked anymore in minutes (4320 = 3 days to pay, transactions after that are ignored)
+If you want to send payouts, without receiving IOTA tokens via payments first, send the tokens to the first address of the seed (index 0) (is displayed on first start)
 
-If you want to send payouts, without receiving iotas via payments first, send the iotas to the first address of the seed (index 0)
-
-```bash
-seed=REPLACEWITHEIGHTYONETRYTESEED
-iotaNodes=["https://nodes.devnet.thetangle.org:443", "https://nodes.devnet.iota.org:443"]
-maxPaymentTime=4320
-```
-
-Add `socketOrigins` to allow other websocket origins than http://localhost:* and http://127.0.0.1:*
-
-```bash
-socketOrigins=['http://localhost:*', 'http://127.0.0.1:*']
-```
-
-Add `minPaymentInterval` to limit the payment (address) generation over the API in seconds; to allow only 1 every 10 seconds:
-
-```bash
-minPaymentInterval=10
-```
-
-Add `zmq` to check payment confirmations with zmq. Optional add `fastButRisky` to have a payment success in seconds if a valid transaction was sent, don't use it with large amounts because a payment will be accepted before confirmation and an attacker could send the iotas to another address
-
-```bash
-zmqNode=tcp://tanglebeat.com:5556
-zmq=true
-fastButRisky=true
-```
-
-You can add `debug=basic` or `debug=full` to get more logs for debugging
-
-Could be used:
-
-```bash
-deletePaidEntries=true
-db=mongodb
-mongodbUrl=mongodb://127.0.0.1:27017/
-wereAddressSpentCheck=false
-network=mainnet
-mwm=14
-explorerTxLink=https://devnet.thetangle.org/transaction/
-maxBundleSize=7
-```
-
-### Examples
+### Example
 
 ```JS
 const paymentModule = require('iota-payment')
@@ -105,17 +53,49 @@ let onPaymentSuccess = function (payment) {
 paymentModule.onEvent('paymentSuccess', onPaymentSuccess);
 ```
 
-- [01_simple_server](./examples/01_simple_server.js)
-- [02 express_server_with_gui+api](./examples/02_express_server_with_gui+api.js)
-- [03_events](./examples/03_events.js)
-- [04_payment](./examples/04_payment.js)
-- [05_payout](./examples/05_payout.js)
-- [06_websockets](./examples/06_websockets.js)
+[More examples](./examples)
+
+[Documentation](./docs)
+
+Additional settings you can add to the .env to override the [defaults](https://github.com/iota-pay/iota-payment-module/blob/37c5562c4792fd394612ea62567ef434cdc242aa/lib/config.js#L3):
+
+```bash
+#time after which payments aren't checked anymore in minutes (4320 = 3 days to pay, transactions after that are ignored)
+maxPaymentTime=4320
+#set custom IOTA nodes
+iotaNodes=["https://nodes.devnet.thetangle.org:443", "https://nodes.devnet.iota.org:443"]
+#get basic logs
+debug=basic
+#get all logs
+debug=full
+#use the mainnet defaults (mainnet nodes, explorer link, mwm)
+network=mainnet
+#override mwm
+mwm=14
+#override explorer tx link
+explorerTxLink=https://devnet.thetangle.org/transaction/
+#don't check if addresses were spent from
+wereAddressSpentCheck=false
+#custom limit for how many txs a bundle can have, minimum is 4
+maxBundleSize=7
+#set origings for websocket connection
+socketOrigins=['http://localhost:*', 'http://127.0.0.1:*']
+#limit the payment (address) generation over the API in seconds; to allow only 1 every 10 seconds:
+minPaymentInterval=10
+#use mongodb
+db=mongodb
+#custom mongodb url
+mongodbUrl=mongodb://127.0.0.1:27017/
+#enable zmq to detect incoming transactions faster
+zmq=true
+zmqNode=tcp://tanglebeat.com:5556
+#payment success in seconds if a valid transaction was sent (not confirmed), funds may never arrive
+fastButRisky=true
+#delete payments and payouts at the moment they get confirmed
+deletePaidEntries=true
+```
 
 ## Contribute
-
-- [Create a new issue](https://github.com/iota-pay/iota-payment-module/issues/new) to report bugs
-- [Fix an issue](https://github.com/iota-pay/iota-payment-module/issues)
 
 Have a look at [CONTRIBUTING.md](https://github.com/iota-pay/iota-payment-module/blob/master/CONTRIBUTING.md).
 
