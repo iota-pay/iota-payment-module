@@ -10,7 +10,7 @@
 
 [![NPM](https://nodei.co/npm/iota-payment.png)](https://nodei.co/npm/iota-payment/)
 
-[![Join Discord](https://img.shields.io/discord/446950114913943562?logo=discord&label=join%20discord)](https://discord.gg/C5PKFX)
+[![Join Discord](https://img.shields.io/discord/446950114913943562?logo=discord&label=join%20discord)](https://discord.gg/hWeH9qV)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/einfachIOTA?style=social&logo=twitter)](https://twitter.com/intent/follow?screen_name=einfachIOTA)
 
 ## How to Use
@@ -24,7 +24,7 @@ This module can easily extend your nodejs or express app.
 ### Install
 
 ```bash
-$ npm install iota-payment
+npm i iota-payment
 ```
 
 ### Usage
@@ -36,17 +36,15 @@ Always start with a new unused [seed](https://docs.iota.org/docs/getting-started
 Minimum requirement to use it in the devnet:
 
 ```bash
-seed='REPLACEWITHEIGHTYONETRYTESEED'
+seed=REPLACEWITHEIGHTYONETRYTESEED
 ```
-
-
 
 maxPaymentTime is the time until created paymentes aren't checked anymore in minutes (4320 = 3 days to pay, transactions after that are ignored)
 
 If you want to send payouts, without receiving iotas via payments first, send the iotas to the first address of the seed (index 0)
 
 ```bash
-seed='REPLACEWITHEIGHTYONETRYTESEED'
+seed=REPLACEWITHEIGHTYONETRYTESEED
 iotaNodes=["https://nodes.devnet.thetangle.org:443", "https://nodes.devnet.iota.org:443"]
 maxPaymentTime=4320
 ```
@@ -66,7 +64,7 @@ minPaymentInterval=10
 Add `zmq` to check payment confirmations with zmq. Optional add `fastButRisky` to have a payment success in seconds if a valid transaction was sent, don't use it with large amounts because a payment will be accepted before confirmation and an attacker could send the iotas to another address
 
 ```bash
-zmqNode='tcp://tanglebeat.com:5556'
+zmqNode=tcp://tanglebeat.com:5556
 zmq=true
 fastButRisky=true
 ```
@@ -78,11 +76,11 @@ Could be used:
 ```bash
 deletePaidEntries=true
 db=mongodb
-mongodbUrl="mongodb://127.0.0.1:27017/"
+mongodbUrl=mongodb://127.0.0.1:27017/
 wereAddressSpentCheck=false
-network='mainnet'
+network=mainnet
 mwm=14
-explorerTxLink='https://devnet.thetangle.org/transaction/'
+explorerTxLink=https://devnet.thetangle.org/transaction/
 maxBundleSize=7
 ```
 
@@ -90,7 +88,7 @@ maxBundleSize=7
 
 ```JS
 const paymentModule = require('iota-payment')
-//create a payment
+//create a payment with additional data that is only stored locally
 paymentModule.createPaymentRequest({ value: 1, data: {name: 'Carlos'} })
   .then(payment => {
     console.log(payment)
@@ -115,10 +113,6 @@ paymentModule.onEvent('paymentSuccess', onPaymentSuccess);
 - [06_websockets](./examples/06_websockets.js)
 
 ## Contribute
-
-This module is only possible because of a large community of contributors. A heartfelt thank you to everyone for all of your efforts!
-
-You can help us too:
 
 - [Create a new issue](https://github.com/iota-pay/iota-payment-module/issues/new) to report bugs
 - [Fix an issue](https://github.com/iota-pay/iota-payment-module/issues)
