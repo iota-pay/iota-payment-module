@@ -24,7 +24,7 @@ Create a .env file with your settings
 
 Always start with a new unused [seed](https://docs.iota.org/docs/getting-started/0.1/clients/seeds)!
 
-Minimum requirement to use it in the devnet:
+Minimum requirement to use it in the comnet:
 
 ```bash
 seed=REPLACEWITHEIGHTYONETRYTESEED
@@ -63,7 +63,7 @@ Additional settings you can add to the .env to override the [defaults](https://g
 #time after which payments aren't checked anymore in minutes (4320 = 3 days to pay, transactions after that are ignored)
 maxPaymentTime=4320
 #set custom IOTA nodes
-iotaNodes=["https://nodes.devnet.thetangle.org:443", "https://nodes.devnet.iota.org:443"]
+iotaNodes=["https://nodes.comnet.thetangle.org:443"]
 #get basic logs
 debug=basic
 #get all logs
@@ -73,7 +73,7 @@ network=mainnet
 #override mwm
 mwm=14
 #override explorer tx link
-explorerTxLink=https://devnet.thetangle.org/transaction/
+explorerTxLink=https://comnet.thetangle.org/transaction/
 #don't check if addresses were spent from
 wereAddressSpentCheck=false
 #custom limit for how many txs a bundle can have, minimum is 4

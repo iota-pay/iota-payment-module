@@ -28,7 +28,7 @@
           <router-link :to="{ name: 'PaymentShow', params: {id: scope.row.id} }">
             <svg-icon icon-class="eye-open" />
           </router-link>
-          <a target="_blank" :href="`https://devnet.thetangle.org/transaction/${scope.row.txhash}`">
+          <a target="_blank" :href="`https://comnet.thetangle.org/transaction/${scope.row.txhash}`">
             <svg-icon icon-class="link" />
           </a>
         </template>
