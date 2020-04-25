@@ -37,22 +37,28 @@ You can get test tokens from [https://faucet.comnet.einfachiota.de](https://fauc
 ### Example
 
 ```JS
-const paymentModule = require('iota-payment')
-//create a payment with additional data that is only stored locally
-paymentModule.createPaymentRequest({ value: 1, data: {name: 'Carlos'} })
-  .then(payment => {
-    console.log(payment)
-  })
-  .catch(e => {
-    console.log(e)
-  })
+const { createPaymentRequest, onEvent, sendPayout } = require('iota-payment')
+
+async function main() {
+  try {
+    //create a payment with additional data that is only stored locally
+    let payment = await createPaymentRequest({ value: 1, data: { name: 'Carlos' } })
+    //create a payout with zero value
+    let payout = await sendPayout({ address: 'VO9H9GFNRTOLPUHM9MACFWSUFLNLDYCTKIPXCYLTNNNDMURPUIXNVBYQMRKOJDEYM9UDESGXBIWASIDRBFOBHCJGZD', value: 0 })
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+//run
+main()
 
 //Create an event handler which is called, when a payment was successfull
-let onPaymentSuccess = function (payment) {
+let onPaymentSuccess = (payment) => {
   //your code
   console.log(`Payment received from ${payment.data.name}:`, payment);
 }
-paymentModule.onEvent('paymentSuccess', onPaymentSuccess);
+onEvent('paymentSuccess', onPaymentSuccess);
 ```
 
 [More examples](./examples)
