@@ -41,9 +41,9 @@ const { createPaymentRequest, onEvent, sendPayout } = require('iota-payment')
 
 async function main() {
   try {
-    //create a payment with additional data that is only stored locally
-    let payment = await createPaymentRequest({ value: 1, data: { name: 'Carlos' } })
-    //create a payout with zero value
+    //create a payment (receiving address), data is optional and is only stored locally
+    let payment = await createPaymentRequest({ value: 1, data: { number: 1 } })
+    //send a payout with zero value
     let payout = await sendPayout({ address: 'VO9H9GFNRTOLPUHM9MACFWSUFLNLDYCTKIPXCYLTNNNDMURPUIXNVBYQMRKOJDEYM9UDESGXBIWASIDRBFOBHCJGZD', value: 0 })
   } catch (err) {
     console.error(err);
@@ -56,7 +56,7 @@ main()
 //Create an event handler which is called, when a payment was successfull
 let onPaymentSuccess = (payment) => {
   //your code
-  console.log(`Payment received from ${payment.data.name}:`, payment);
+  console.log(`Payment number ${payment.data.number} was paid:`, payment);
 }
 onEvent('paymentSuccess', onPaymentSuccess);
 ```
