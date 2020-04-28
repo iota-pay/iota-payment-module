@@ -136,7 +136,7 @@ paymentModule.payment.createPaymentRequest({value: 1, data: { "test": "123" }})
  })
 //example payment:
 { data: '',
-payed: false,
+paid: false,
 txInfo: null,
 type: 'value',
 value: 1,
@@ -154,7 +154,7 @@ paymentModule.payment.createPaymentRequest({timeUntilConfirmation: 180, data: { 
  })
 //example payment:
 { data: { test: '123' },
-payed: false,
+paid: false,
 txInfo: null,
 type: 'time',
 confirmationTime: 1575750870,
@@ -187,14 +187,14 @@ paymentModule.payment.getPayments()
  index: 10,
  value: '0',
  data: 'test',
- payed: true,
+ paid: true,
  id: '1570466750915',
  lastTime: 1570466754629 },
 { address:
   'CLTDMWYNTKMPSISD9CBLH9MGATUZQXDALPZQBMHPJQLTKDTWDKFRJQYDKUCPYQFTFPNJBEIHHJRBKQMXXHNSUYEXJC',
  index: 12,
  value: 1,
- payed: false,
+ paid: false,
  id: '1570564499942' } ]
 ```
 
@@ -202,7 +202,7 @@ Returns **[Array][38]&lt;[Object][35]>** payments
 
 ## getOpenPayments
 
-Returns all open (not payed and not too old) payments
+Returns all open (not paid and not too old) payments
 
 ### Examples
 
@@ -221,13 +221,13 @@ paymentModule.payment.getPayments()
  index: 11,
  value: 1,
  data: { test: '123' },
- payed: false,
+ paid: false,
  id: '1570554460662' },
 { address:
   'CLTDMWYNTKMPSISD9CBLH9MGATUZQXDALPZQBMHPJQLTKDTWDKFRJQYDKUCPYQFTFPNJBEIHHJRBKQMXXHNSUYEXJC',
  index: 12,
  value: 1,
- payed: false,
+ paid: false,
  id: '1570564499942' } ]
 ```
 
@@ -254,13 +254,13 @@ paymentModule.payment.getPaidPayments()
  index: 11,
  value: 1,
  data: { test: '123' },
- payed: true,
+ paid: true,
  id: '1570554460662' },
 { address:
   'CLTDMWYNTKMPSISD9CBLH9MGATUZQXDALPZQBMHPJQLTKDTWDKFRJQYDKUCPYQFTFPNJBEIHHJRBKQMXXHNSUYEXJC',
  index: 12,
  value: 1,
- payed: true,
+ paid: true,
  id: '1570564499942' } ]
 ```
 
@@ -290,7 +290,7 @@ paymentModule.getPayment({id:'1570564499942'})
   'CLTDMWYNTKMPSISD9CBLH9MGATUZQXDALPZQBMHPJQLTKDTWDKFRJQYDKUCPYQFTFPNJBEIHHJRBKQMXXHNSUYEXJC',
  index: 12,
  value: 1,
- payed: false,
+ paid: false,
  id: '1570564499942' }
 ```
 
@@ -341,7 +341,7 @@ value: 1,
 message: 'Example message',
 tag: 'TRYTETAG',
 data: {test: 27},
-payed: false,
+paid: false,
 id: '1570619992125' }
 ```
 
@@ -368,7 +368,7 @@ paymentModule.getPayouts()
    "address": "USKSGFKPWVXD9EUOJXWNLVWG9FDTIPGBUYB9BQNMMUWIEOMFNDCCUKCJMEPRICBHZNRAIZFGNPK9GCGBYQAEWNJRMC",
    "value": 1,
    "message": "Example message",
-   "payed": true,
+   "paid": true,
    "id": "1570616325073",
    "txhash": "XKLLL9B9AUN9EASCAQAQHEYDLLEUDDUCOTJVNTJUSZVTNWUTDPHZUFUJAHFZJOSQYYEPJSWRDXDJ99999"
  },
@@ -376,7 +376,7 @@ paymentModule.getPayouts()
    "address": "HW99PKRDWBUCCWLEQDONQXW9AXQHZAABYEKWSEFYAUIQWWCLVHAUJEQAZJACAGPZBZSQJIOUXRYYEXWZCXXOAJMZVY",
    "value": 1,
    "message": "Example message",
-   "payed": false,
+   "paid": false,
    "id": "1570616561382"
  }
 ]
@@ -405,7 +405,7 @@ paymentModule.getOpenPayouts()
    "address": "HW99PKRDWBUCCWLEQDONQXW9AXQHZAABYEKWSEFYAUIQWWCLVHAUJEQAZJACAGPZBZSQJIOUXRYYEXWZCXXOAJMZVY",
    "value": 1,
    "message": "Example message",
-   "payed": false,
+   "paid": false,
    "id": "1570616561382"
  }
 ]
@@ -437,7 +437,7 @@ paymentModule.getPayoutByID('1570611186704')
  'USKSGFKPWVXD9EUOJXWNLVWG9FDTIPGBUYB9BQNMMUWIEOMFNDCCUKCJMEPRICBHZNRAIZFGNPK9GCGBYQAEWNJRMC',
 value: 1,
 message: 'Example message',
-payed: false,
+paid: false,
 id: '1570611186704' }
 ```
 
@@ -467,7 +467,7 @@ paymentModule.getPayoutByTxhash('XKLLL9B9AUN9EASCAQAQHEYDLLEUDDUCOTJVNTJUSZVTNWU
  'USKSGFKPWVXD9EUOJXWNLVWG9FDTIPGBUYB9BQNMMUWIEOMFNDCCUKCJMEPRICBHZNRAIZFGNPK9GCGBYQAEWNJRMC',
 value: 1,
 message: 'Example message',
-payed: true,
+paid: true,
 id: '1570616325073',
 txhash:
  'XKLLL9B9AUN9EASCAQAQHEYDLLEUDDUCOTJVNTJUSZVTNWUTDPHZUFUJAHFZJOSQYYEPJSWRDXDJ99999' }

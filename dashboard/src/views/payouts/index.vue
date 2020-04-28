@@ -18,9 +18,9 @@
       <el-table-column align="center" label="Value" width="130">
         <template slot-scope="scope">{{ scope.row.value }}</template>
       </el-table-column>
-      <el-table-column class-name="status-col" label="Payed" width="110" align="center">
+      <el-table-column class-name="status-col" label="paid" width="110" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.payed | statusFilter">{{ scope.row.payed }}</el-tag>
+          <el-tag :type="scope.row.paid | statusFilter">{{ scope.row.paid }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column align="center" prop="created_at" label="Details" width="200">
