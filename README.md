@@ -45,6 +45,9 @@ async function main() {
     let payment = await createPaymentRequest({ value: 1, data: { number: 1 } })
     //send a payout with zero value
     let payout = await sendPayout({ address: 'VO9H9GFNRTOLPUHM9MACFWSUFLNLDYCTKIPXCYLTNNNDMURPUIXNVBYQMRKOJDEYM9UDESGXBIWASIDRBFOBHCJGZD', value: 0 })
+    //get account balance
+    let balance = await getBalance()
+    console.log("Balance:", balance)
   } catch (err) {
     console.error(err);
   }
