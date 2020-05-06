@@ -89,6 +89,8 @@ explorerTxLink=https://comnet.thetangle.org/transaction/
 wereAddressSpentCheck=false
 #custom limit for how many txs a bundle can have, minimum is 4
 maxBundleSize=7
+#value for payments with the API
+value=1
 #set origings for websocket connection
 socketOrigins=['http://localhost:*', 'http://127.0.0.1:*']
 #limit the payment (address) generation over the API in seconds; to allow only 1 every 10 seconds:
