@@ -106,6 +106,17 @@ zmqNode=tcp://tanglebeat.com:5556
 fastButRisky=true
 #delete payments and payouts at the moment they get confirmed
 deletePaidEntries=true
+
+
+# ---------
+# Dashboard
+# ---------
+## username for login - default: admin
+username=your_user_name
+## password for login - default: password
+password=password
+## jwt_token - default: ipm_ipm_ipm
+jwt_token=your_jwt_token
 ```
 
 ## Contribute
