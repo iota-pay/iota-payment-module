@@ -37,7 +37,7 @@ You can get test tokens from [https://faucet.comnet.einfachiota.de](https://fauc
 ### Example
 
 ```JS
-const { createPaymentRequest, onEvent, sendPayout } = require('iota-payment')
+const { createPaymentRequest, onEvent, sendPayout, getBalance } = require('iota-payment')
 
 async function main() {
   try {
