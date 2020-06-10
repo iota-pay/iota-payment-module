@@ -3,3 +3,4 @@ node_modules
 db_iota-payment.json
 db_iota-payment-*.json
 .DS_STORE
+/target

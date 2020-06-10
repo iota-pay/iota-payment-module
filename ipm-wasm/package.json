@@ -1,0 +1,15 @@
+{
+  "name": "iotapay",
+  "collaborators": [
+    "huhn511 <huhn@einfachIOTA.de>"
+  ],
+  "version": "0.0.1",
+  "files": [
+    "iotapay_bg.wasm",
+    "iotapay.js",
+    "iotapay_bg.js",
+    "iotapay.d.ts"
+  ],
+  "main": "iotapay.js",
+  "types": "iotapay.d.ts"
+}
