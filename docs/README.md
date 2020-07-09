@@ -4,37 +4,42 @@
 
 -   [getBalance][1]
     -   [Examples][2]
--   [createServer][3]
+-   [generate_address][3]
     -   [Parameters][4]
-    -   [Examples][5]
--   [on][6]
-    -   [Parameters][7]
-    -   [Examples][8]
--   [createPayment][9]
-    -   [Parameters][10]
-    -   [Examples][11]
--   [getPayments][12]
-    -   [Examples][13]
--   [getOpenPayments][14]
+-   [generate_addresses][5]
+    -   [Parameters][6]
+-   [createServer][7]
+    -   [Parameters][8]
+    -   [Examples][9]
+-   [onEvent][10]
+    -   [Parameters][11]
+    -   [Examples][12]
+-   [createPaymentRequest][13]
+    -   [Parameters][14]
     -   [Examples][15]
 -   [getPaidPayments][16]
     -   [Examples][17]
--   [getPaymentByID][18]
-    -   [Parameters][19]
-    -   [Examples][20]
--   [send][21]
-    -   [Parameters][22]
+-   [getPaidPayments][18]
+    -   [Examples][19]
+-   [getPaidPayments][20]
+    -   [Examples][21]
+-   [payment][22]
     -   [Examples][23]
--   [getPayouts][24]
-    -   [Examples][25]
--   [getOpenPayouts][26]
-    -   [Examples][27]
--   [getPayoutByID][28]
-    -   [Parameters][29]
-    -   [Examples][30]
--   [getPayoutByTxhash][31]
-    -   [Parameters][32]
-    -   [Examples][33]
+-   [sendPayout][24]
+    -   [Parameters][25]
+    -   [Examples][26]
+-   [payoutValidator][27]
+    -   [Parameters][28]
+    -   [Examples][29]
+-   [payoutValidator][30]
+    -   [Parameters][31]
+    -   [Examples][32]
+-   [payoutValidator][33]
+    -   [Parameters][34]
+    -   [Examples][35]
+-   [payoutValidator][36]
+    -   [Parameters][37]
+    -   [Examples][38]
 
 ## getBalance
 
@@ -55,7 +60,30 @@ paymentModule.getBalance()
 15
 ```
 
-Returns **[number][34]** balance
+Returns **[number][39]** balance
+
+## generate_address
+
+### Parameters
+
+-   `seed` **[string][40]** 
+-   `index` **[number][39]** 
+-   `security` **[number][39]** 
+-   `checksum` **[boolean][41]** 
+
+Returns **[string][40]** 
+
+## generate_addresses
+
+### Parameters
+
+-   `seed` **[string][40]** 
+-   `startindex` **[number][39]** 
+-   `endindex` **[number][39]** 
+-   `security` **[number][39]** 
+-   `checksum` **[boolean][41]** 
+
+Returns **[Array][42]&lt;any>** 
 
 ## createServer
 
@@ -63,11 +91,11 @@ Creates and returns a express server.
 
 ### Parameters
 
--   `app` **[object][35]** an express application.
--   `options` **[object][35]** an options object. (optional, default `{}`)
-    -   `options.websockets` **[Boolean][36]** websockets.
-    -   `options.dashboard` **[Boolean][36]** dashboard at /iotapay.
-    -   `options.api` **[Boolean][36]** api at /iotapay/api.
+-   `app` **[object][43]** an express application.
+-   `options` **[object][43]** an options object. (optional, default `{}`)
+    -   `options.websockets` **[Boolean][41]** websockets.
+    -   `options.dashboard` **[Boolean][41]** dashboard at /iotapay.
+    -   `options.api` **[Boolean][41]** api at /iotapay/api.
 
 ### Examples
 
@@ -84,9 +112,9 @@ server.listen(3000, function () {
 })
 ```
 
-Returns **[object][35]** an http server
+Returns **[object][43]** an http server
 
-## on
+## onEvent
 
 This method attaches an event listener.
 Possible events:
@@ -95,8 +123,8 @@ Possible events:
 
 ### Parameters
 
--   `event` **[object][35]** event name
--   `fnc` **[function][37]** the function which will be called
+-   `event` **[object][43]** event name
+-   `fnc` **[function][44]** the function which will be called
 
 ### Examples
 
@@ -112,22 +140,22 @@ let onPaymentSuccess = function (payment) {
 paymentModule.onEvent('paymentSuccess', onPaymentSuccess);
 ```
 
-## createPayment
+## createPaymentRequest
 
 Creates and returns a payment.
 
 ### Parameters
 
--   `paymentInput` **[object][35]** data for the payment
-    -   `paymentInput.value` **[number][34]?** iota value
-    -   `paymentInput.timeUntilConfirmation` **[number][34]?** time in seconds until the payment is confirmed, independent of the received amount
+-   `paymentInput` **[object][43]** data for the payment
+    -   `paymentInput.value` **[number][39]?** iota value
+    -   `paymentInput.timeUntilConfirmation` **[number][39]?** time in seconds until the payment is confirmed, independent of the received amount
     -   `paymentInput.data` **any?** additional data
 
 ### Examples
 
 ```javascript
 // create a payment with the value option
-paymentModule.payment.createPaymentRequest({value: 1, data: { "test": "123" }})
+paymentModule.createPaymentRequest({value: 1, data: { "test": "123" }})
  .then(payment => {
    console.log(payment)
  })
@@ -145,7 +173,7 @@ address:
 index: 49,
 id: '1575750004195'}
 // create a payment with the timeUntilConfirmation option
-paymentModule.payment.createPaymentRequest({timeUntilConfirmation: 180, data: { "test": "123" }})
+paymentModule.createPaymentRequest({timeUntilConfirmation: 180, data: { "test": "123" }})
  .then(payment => {
    console.log(payment)
  })
@@ -164,9 +192,9 @@ index: 50,
 id: '1575750690816' }
 ```
 
-Returns **[object][35]** payment
+Returns **[object][43]** payment
 
-## getPayments
+## getPaidPayments
 
 Returns all payments
 
@@ -174,7 +202,7 @@ Returns all payments
 
 ```javascript
 // get payments
-paymentModule.payment.getPayments()
+paymentModule.getPayments()
  .then(payments => {
    console.log(payments)
  })
@@ -198,9 +226,9 @@ paymentModule.payment.getPayments()
  id: '1570564499942' } ]
 ```
 
-Returns **[Array][38]&lt;[Object][35]>** payments
+Returns **[Array][42]&lt;[Object][43]>** payments
 
-## getOpenPayments
+## getPaidPayments
 
 Returns all open (not paid and not too old) payments
 
@@ -208,7 +236,7 @@ Returns all open (not paid and not too old) payments
 
 ```javascript
 // get open payments
-paymentModule.payment.getPayments()
+paymentModule.getPayments()
  .then(payments => {
    console.log(payments)
  })
@@ -231,7 +259,7 @@ paymentModule.payment.getPayments()
  id: '1570564499942' } ]
 ```
 
-Returns **[Array][38]&lt;[Object][35]>** open payments
+Returns **[Array][42]&lt;[Object][43]>** open payments
 
 ## getPaidPayments
 
@@ -241,7 +269,7 @@ Returns all paid (not open and not too old) payments
 
 ```javascript
 // get open payments
-paymentModule.payment.getPaidPayments()
+paymentModule.getPaidPayments()
  .then(payments => {
    console.log(payments)
  })
@@ -264,21 +292,17 @@ paymentModule.payment.getPaidPayments()
  id: '1570564499942' } ]
 ```
 
-Returns **[Array][38]&lt;[Object][35]>** paid payments
+Returns **[Array][42]&lt;[Object][43]>** paid payments
 
-## getPaymentByID
+## payment
 
 Returns payment by id
-
-### Parameters
-
--   `id`  
 
 ### Examples
 
 ```javascript
 // get payment by id
-paymentModule.getPayment({id:'1570564499942'})
+paymentModule.getPaymentByID('1570564499942')
  .then(payment => {
    console.log(payment)
  })
@@ -294,22 +318,22 @@ paymentModule.getPayment({id:'1570564499942'})
  id: '1570564499942' }
 ```
 
-Returns **[Object][35]** payment
+Returns **[Object][43]** payment
 
-## send
+## sendPayout
 
 Creates and returns a payout.
 
 ### Parameters
 
--   `payoutData` **[object][35]** data for the payout
+-   `payoutData` **[object][43]** data for the payout
     -   `payoutData.address` **address** 90 trytes iota address (with checksum)
-    -   `payoutData.amount` **[number][34]** amount of iotas
-    -   `payoutData.message` **[string][39]?** message which will be send with the transaction
-    -   `payoutData.tag` **[string][39]?** tryte tag
+    -   `payoutData.amount` **[number][39]** amount of iotas
+    -   `payoutData.message` **[string][40]?** message which will be send with the transaction
+    -   `payoutData.tag` **[string][40]?** tryte tag
     -   `payoutData.data` **any?** additional data, is only stored locally
-    -   `payoutData.startIndex` **[number][34]?** custom start index to search for inputaddresses
-    -   `payoutData.endIndex` **[number][34]?** custom end index to search for inputaddresses
+    -   `payoutData.startIndex` **[number][39]?** custom start index to search for inputaddresses
+    -   `payoutData.endIndex` **[number][39]?** custom end index to search for inputaddresses
 
 ### Examples
 
@@ -327,7 +351,7 @@ let payoutObject = {
   // startIndex: 0,
   // endIndex: 1
 }
-paymentModule.send(payoutObject)
+paymentModule.sendPayout(payoutObject)
  .then(payout => {
    console.log(payout)
  })
@@ -345,11 +369,22 @@ paid: false,
 id: '1570619992125' }
 ```
 
-Returns **[object][35]** payout
+Returns **[object][43]** payout
 
-## getPayouts
+## payoutValidator
 
 Returns all payouts
+
+### Parameters
+
+-   `$0` **[Object][43]**  (optional, default `{}`)
+    -   `$0.address`  
+    -   `$0.value`  
+    -   `$0.message`  
+    -   `$0.tag`  
+    -   `$0.data`  
+    -   `$0.startIndex`  
+    -   `$0.endIndex`  
 
 ### Examples
 
@@ -382,11 +417,22 @@ paymentModule.getPayouts()
 ]
 ```
 
-Returns **[Array][38]&lt;[Object][35]>** payouts
+Returns **[Array][42]&lt;[Object][43]>** payouts
 
-## getOpenPayouts
+## payoutValidator
 
 Returns open payouts
+
+### Parameters
+
+-   `$0` **[Object][43]**  (optional, default `{}`)
+    -   `$0.address`  
+    -   `$0.value`  
+    -   `$0.message`  
+    -   `$0.tag`  
+    -   `$0.data`  
+    -   `$0.startIndex`  
+    -   `$0.endIndex`  
 
 ### Examples
 
@@ -411,15 +457,22 @@ paymentModule.getOpenPayouts()
 ]
 ```
 
-Returns **[Array][38]&lt;[Object][35]>** open payouts
+Returns **[Array][42]&lt;[Object][43]>** open payouts
 
-## getPayoutByID
+## payoutValidator
 
 Returns payout by id
 
 ### Parameters
 
--   `id`  
+-   `$0` **[Object][43]**  (optional, default `{}`)
+    -   `$0.address`  
+    -   `$0.value`  
+    -   `$0.message`  
+    -   `$0.tag`  
+    -   `$0.data`  
+    -   `$0.startIndex`  
+    -   `$0.endIndex`  
 
 ### Examples
 
@@ -441,15 +494,22 @@ paid: false,
 id: '1570611186704' }
 ```
 
-Returns **[Object][35]** payment
+Returns **[Object][43]** payment
 
-## getPayoutByTxhash
+## payoutValidator
 
 Returns payout by txhash
 
 ### Parameters
 
--   `txhash`  
+-   `$0` **[Object][43]**  (optional, default `{}`)
+    -   `$0.address`  
+    -   `$0.value`  
+    -   `$0.message`  
+    -   `$0.tag`  
+    -   `$0.data`  
+    -   `$0.startIndex`  
+    -   `$0.endIndex`  
 
 ### Examples
 
@@ -473,96 +533,106 @@ txhash:
  'XKLLL9B9AUN9EASCAQAQHEYDLLEUDDUCOTJVNTJUSZVTNWUTDPHZUFUJAHFZJOSQYYEPJSWRDXDJ99999' }
 ```
 
-Returns **[Object][35]** payment
+Returns **[Object][43]** payment
 
 ## 
 
 WebSockets with socket.io
 
 backend:
-[https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websockets.js][40]
+[https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websockets.js][45]
 
 frontend:
-[https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websocket.html][41]
+[https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websocket.html][46]
 
 [1]: #getbalance
 
 [2]: #examples
 
-[3]: #createserver
+[3]: #generate_address
 
 [4]: #parameters
 
-[5]: #examples-1
+[5]: #generate_addresses
 
-[6]: #on
+[6]: #parameters-1
 
-[7]: #parameters-1
+[7]: #createserver
 
-[8]: #examples-2
+[8]: #parameters-2
 
-[9]: #createpayment
+[9]: #examples-1
 
-[10]: #parameters-2
+[10]: #onevent
 
-[11]: #examples-3
+[11]: #parameters-3
 
-[12]: #getpayments
+[12]: #examples-2
 
-[13]: #examples-4
+[13]: #createpaymentrequest
 
-[14]: #getopenpayments
+[14]: #parameters-4
 
-[15]: #examples-5
+[15]: #examples-3
 
 [16]: #getpaidpayments
 
-[17]: #examples-6
+[17]: #examples-4
 
-[18]: #getpaymentbyid
+[18]: #getpaidpayments-1
 
-[19]: #parameters-3
+[19]: #examples-5
 
-[20]: #examples-7
+[20]: #getpaidpayments-2
 
-[21]: #send
+[21]: #examples-6
 
-[22]: #parameters-4
+[22]: #payment
 
-[23]: #examples-8
+[23]: #examples-7
 
-[24]: #getpayouts
+[24]: #sendpayout
 
-[25]: #examples-9
+[25]: #parameters-5
 
-[26]: #getOpenPayouts
+[26]: #examples-8
 
-[27]: #examples-10
+[27]: #payoutvalidator
 
-[28]: #getpayoutbyid
+[28]: #parameters-6
 
-[29]: #parameters-5
+[29]: #examples-9
 
-[30]: #examples-11
+[30]: #payoutvalidator-1
 
-[31]: #getpayoutbytxhash
+[31]: #parameters-7
 
-[32]: #parameters-6
+[32]: #examples-10
 
-[33]: #examples-12
+[33]: #payoutvalidator-2
 
-[34]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[34]: #parameters-8
 
-[35]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[35]: #examples-11
 
-[36]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[36]: #payoutvalidator-3
 
-[37]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[37]: #parameters-9
 
-[38]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[38]: #examples-12
 
-[39]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[39]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-[40]: https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websockets.js
+[40]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[41]: https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websocket.html
+[41]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[42]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[43]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[44]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[45]: https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websockets.js
+
+[46]: https://github.com/machineeconomy/iota-payment/blob/master/examples/06_websocket.html
