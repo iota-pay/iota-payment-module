@@ -23,7 +23,7 @@
     "@iota/core": "^1.0.0-beta.30",
     "@iota/transaction-converter": "^1.0.0-beta.30",
     "@iota/validators": "^1.0.0-beta.30",
-    "bent": "^7.3.9",
+    "bent": "^7.3.10",
     "bluebird": "^3.5.5",
     "camelize": "^1.0.0",
     "colorette": "^1.2.1",
@@ -52,6 +52,6 @@
     "eslint-plugin-standard": "^4.0.1",
     "nodemon": "^2.0.4",
     "onchange": "^6.1.1",
-    "prettier": "^2.0.5"
+    "prettier": "^2.1.1"
   }
 }
