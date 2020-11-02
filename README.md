@@ -8,7 +8,7 @@
 
 ## How to Use
 
-**Still in development and testing. Unexpected errors and loss of funds may occur. Feedback is welcome!**
+**Unexpected errors and loss of funds may occur. Feedback is welcome!**
 
 This module can easily extend your nodejs or express app.
 
@@ -32,7 +32,6 @@ seed=REPLACEWITHEIGHTYONETRYTESEED
 
 If you want to send payouts, without receiving IOTA tokens via payments first, send the tokens to the first address of the seed (index 0) (is displayed on first start)
 
-You can get test tokens from [https://faucet.comnet.einfachiota.de](https://faucet.comnet.einfachiota.de)
 
 ### Example
 

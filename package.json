@@ -23,7 +23,7 @@
     "@iota/core": "^1.0.0-beta.30",
     "@iota/transaction-converter": "^1.0.0-beta.30",
     "@iota/validators": "^1.0.0-beta.30",
-    "bent": "^7.3.10",
+    "bent": "^7.3.12",
     "bluebird": "^3.5.5",
     "camelize": "^1.0.0",
     "colorette": "^1.2.1",
@@ -34,24 +34,24 @@
     "fs-extra": "^9.0.1",
     "jsonwebtoken": "^8.5.1",
     "lowdb": "^1.0.0",
-    "mongodb": "^3.6.0",
+    "mongodb": "^3.6.2",
     "socket.io": "^2.3.0",
     "valid-url": "^1.0.9",
-    "validator": "^13.1.1",
+    "validator": "^13.1.17",
     "zeromq": "^5.1.0"
   },
   "devDependencies": {
-    "documentation": "^13.0.2",
+    "documentation": "^13.1.0",
     "eslint": "^6.3.0",
-    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "nodemon": "^2.0.4",
+    "eslint-plugin-standard": "^4.0.2",
+    "nodemon": "^2.0.6",
     "onchange": "^6.1.1",
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.2"
   }
 }
